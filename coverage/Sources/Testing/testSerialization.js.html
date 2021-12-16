@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.45% </span>
+                <span class="strong">36.36% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>21/22</span>
+                <span class='fraction'>8/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>1/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.45% </span>
+                <span class="strong">36.36% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>21/22</span>
+                <span class='fraction'>8/22</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -195,7 +195,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -205,28 +205,28 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import test from 'tape-catch';
@@ -280,8 +280,8 @@ const SERIALIZABLE_CLASSES = {
   },
 };
 &nbsp;
-function ignoreMTime(json) {
-  return JSON.stringify(json).replace(/"mtime":[0-9]+/g, '"mtime":0');
+function <span class="fstat-no" title="function not covered" >ignoreMTime(</span>json) {
+<span class="cstat-no" title="statement not covered" >  return JSON.stringify(json).replace(/"mtime":[0-9]+/g, '"mtime":0');</span>
 }
 &nbsp;
 classToTest.forEach((testName) =&gt; {
@@ -290,29 +290,29 @@ classToTest.forEach((testName) =&gt; {
   const initData = SERIALIZABLE_CLASSES[testName].data;
   const debug = SERIALIZABLE_CLASSES[testName].debug;
 &nbsp;
-  test(`Test ${testName} serialization/deserialization`, (t) =&gt; {
-    t.ok(klass, 'Make sure the class definition exist');
-    const instance = klass.newInstance(initData);
-    t.ok(instance, 'Make sure the instance exist');
+  test(`Test ${testName} serialization/deserialization`, <span class="fstat-no" title="function not covered" >(t</span>) =&gt; {
+<span class="cstat-no" title="statement not covered" >    t.ok(klass, 'Make sure the class definition exist');</span>
+    const instance = <span class="cstat-no" title="statement not covered" >klass.newInstance(initData);</span>
+<span class="cstat-no" title="statement not covered" >    t.ok(instance, 'Make sure the instance exist');</span>
 &nbsp;
-    const state = instance.getState();
-    t.ok(instance, 'Make sure we can get serialize data');
-    const instance2 = vtk(state);
-    t.ok(instance, 'Make sure we can get deserialize data');
-    const state2 = instance2.getState();
+    const state = <span class="cstat-no" title="statement not covered" >instance.getState();</span>
+<span class="cstat-no" title="statement not covered" >    t.ok(instance, 'Make sure we can get serialize data');</span>
+    const instance2 = <span class="cstat-no" title="statement not covered" >vtk(state);</span>
+<span class="cstat-no" title="statement not covered" >    t.ok(instance, 'Make sure we can get deserialize data');</span>
+    const state2 = <span class="cstat-no" title="statement not covered" >instance2.getState();</span>
 &nbsp;
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (debug) {
+<span class="cstat-no" title="statement not covered" >    if (debug) {</span>
 <span class="cstat-no" title="statement not covered" >      vtkDebugMacro(state);</span>
     }
 &nbsp;
-    t.notEqual(instance, instance2, 'We have two different instances');
-    t.deepEqual(
+<span class="cstat-no" title="statement not covered" >    t.notEqual(instance, instance2, 'We have two different instances');</span>
+<span class="cstat-no" title="statement not covered" >    t.deepEqual(</span>
       ignoreMTime(state),
       ignoreMTime(state2),
       'But same serialized content'
     );
 &nbsp;
-    t.end();
+<span class="cstat-no" title="statement not covered" >    t.end();</span>
   });
 });
 &nbsp;</pre></td></tr></table></pre>
@@ -322,7 +322,7 @@ classToTest.forEach((testName) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Dec 14 2021 18:41:38 GMT+0000 (Coordinated Universal Time)
+                at Thu Dec 16 2021 14:59:16 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

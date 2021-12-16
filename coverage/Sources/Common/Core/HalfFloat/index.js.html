@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">7.14% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/28</span>
+                <span class='fraction'>2/28</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.18% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/22</span>
+                <span class='fraction'>0/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">7.14% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/28</span>
+                <span class='fraction'>2/28</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -135,22 +135,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2000000x</span>
-<span class="cline-any cline-yes">2000000x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2000000x</span>
-<span class="cline-any cline-yes">2000000x</span>
-<span class="cline-any cline-yes">2000000x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2000000x</span>
-<span class="cline-any cline-yes">1249869x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">750131x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -158,7 +149,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">750131x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -166,11 +166,11 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">750131x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">750131x</span>
-<span class="cline-any cline-yes">750131x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -202,22 +202,22 @@ const int32View = new Int32Array(floatView.buffer);
 /* This method is faster than the OpenEXR implementation (very often
  * used, eg. in Ogre), with the additional benefit of rounding, inspired
  * by James Tursa?s half-precision code. */
-function toHalf(val) {
-  floatView[0] = val;
-  const x = int32View[0];
+function <span class="fstat-no" title="function not covered" >toHalf(</span>val) {
+<span class="cstat-no" title="statement not covered" >  floatView[0] = val;</span>
+  const x = <span class="cstat-no" title="statement not covered" >int32View[0];</span>
 &nbsp;
-  let bits = (x &gt;&gt; 16) &amp; 0x8000; /* Get the sign */
-  let m = (x &gt;&gt; 12) &amp; 0x07ff; /* Keep one extra bit for rounding */
-  const e = (x &gt;&gt; 23) &amp; 0xff; /* Using int is faster here */
+  let bits = <span class="cstat-no" title="statement not covered" >(x &gt;&gt; 16) &amp; 0x8000;</span> /* Get the sign */
+  let m = <span class="cstat-no" title="statement not covered" >(x &gt;&gt; 12) &amp; 0x07ff;</span> /* Keep one extra bit for rounding */
+  const e = <span class="cstat-no" title="statement not covered" >(x &gt;&gt; 23) &amp; 0xff;</span> /* Using int is faster here */
 &nbsp;
   /* If zero, or denormal, or exponent underflows too much for a denormal
    * half, return signed zero. */
-  if (e &lt; 103) {
-    return bits;
+<span class="cstat-no" title="statement not covered" >  if (e &lt; 103) {</span>
+<span class="cstat-no" title="statement not covered" >    return bits;</span>
   }
 &nbsp;
   /* If NaN, return NaN. If Inf or exponent overflow, return Inf. */
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (e &gt; 142) {
+<span class="cstat-no" title="statement not covered" >  if (e &gt; 142) {</span>
 <span class="cstat-no" title="statement not covered" >    bits |= 0x7c00;</span>
     /* If exponent was 0xff and one mantissa bit was set, it means NaN,
      * not Inf, so make sure we set one mantissa bit too. */
@@ -226,7 +226,7 @@ function toHalf(val) {
   }
 &nbsp;
   /* If exponent underflows but not too much, return a denormal */
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (e &lt; 113) {
+<span class="cstat-no" title="statement not covered" >  if (e &lt; 113) {</span>
 <span class="cstat-no" title="statement not covered" >    m |= 0x0800;</span>
     /* Extra rounding may overflow and set mantissa to 0 and exponent
      * to 1, which is OK. */
@@ -234,11 +234,11 @@ function toHalf(val) {
 <span class="cstat-no" title="statement not covered" >    return bits;</span>
   }
 &nbsp;
-  bits |= ((e - 112) &lt;&lt; 10) | (m &gt;&gt; 1);
+<span class="cstat-no" title="statement not covered" >  bits |= ((e - 112) &lt;&lt; 10) | (m &gt;&gt; 1);</span>
   /* Extra rounding. An overflow will set mantissa to 0 and increment
    * the exponent, which is OK. */
-  bits += m &amp; 1;
-  return bits;
+<span class="cstat-no" title="statement not covered" >  bits += m &amp; 1;</span>
+<span class="cstat-no" title="statement not covered" >  return bits;</span>
 }
 &nbsp;
 function <span class="fstat-no" title="function not covered" >fromHalf(</span>h) {
@@ -268,7 +268,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Dec 14 2021 18:41:38 GMT+0000 (Coordinated Universal Time)
+                at Thu Dec 16 2021 14:59:16 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">58.82% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>10/17</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">58.82% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>10/17</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -206,7 +206,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -217,7 +217,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -228,7 +228,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -239,7 +239,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -250,7 +250,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -261,7 +261,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -272,7 +272,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -344,8 +344,8 @@ const axisXColor = [1, 0, 0];
 const axisYColor = [0, 1, 0];
 const axisZColor = [0, 0, 1];
 &nbsp;
-const generateAxisXinY = () =&gt;
-  vtkStateBuilder
+const generateAxisXinY = <span class="fstat-no" title="function not covered" >()</span> =&gt;
+<span class="cstat-no" title="statement not covered" >  vtkStateBuilder</span>
     .createBuilder()
     .addField({ name: 'point1', initialValue: [0, 0, -factor] })
     .addField({ name: 'point2', initialValue: [0, 0, factor] })
@@ -355,8 +355,8 @@ const generateAxisXinY = () =&gt;
     .addField({ name: 'inViewType', initialValue: ViewTypes.XZ_PLANE })
     .build();
 &nbsp;
-const generateAxisXinZ = () =&gt;
-  vtkStateBuilder
+const generateAxisXinZ = <span class="fstat-no" title="function not covered" >()</span> =&gt;
+<span class="cstat-no" title="statement not covered" >  vtkStateBuilder</span>
     .createBuilder()
     .addField({ name: 'point1', initialValue: [0, -factor, 0] })
     .addField({ name: 'point2', initialValue: [0, factor, 0] })
@@ -366,8 +366,8 @@ const generateAxisXinZ = () =&gt;
     .addField({ name: 'inViewType', initialValue: ViewTypes.XY_PLANE })
     .build();
 &nbsp;
-const generateAxisYinX = () =&gt;
-  vtkStateBuilder
+const generateAxisYinX = <span class="fstat-no" title="function not covered" >()</span> =&gt;
+<span class="cstat-no" title="statement not covered" >  vtkStateBuilder</span>
     .createBuilder()
     .addField({ name: 'point1', initialValue: [0, 0, -factor] })
     .addField({ name: 'point2', initialValue: [0, 0, factor] })
@@ -377,8 +377,8 @@ const generateAxisYinX = () =&gt;
     .addField({ name: 'inViewType', initialValue: ViewTypes.YZ_PLANE })
     .build();
 &nbsp;
-const generateAxisYinZ = () =&gt;
-  vtkStateBuilder
+const generateAxisYinZ = <span class="fstat-no" title="function not covered" >()</span> =&gt;
+<span class="cstat-no" title="statement not covered" >  vtkStateBuilder</span>
     .createBuilder()
     .addField({ name: 'point1', initialValue: [-factor, 0, 0] })
     .addField({ name: 'point2', initialValue: [factor, 0, 0] })
@@ -388,8 +388,8 @@ const generateAxisYinZ = () =&gt;
     .addField({ name: 'inViewType', initialValue: ViewTypes.XY_PLANE })
     .build();
 &nbsp;
-const generateAxisZinX = () =&gt;
-  vtkStateBuilder
+const generateAxisZinX = <span class="fstat-no" title="function not covered" >()</span> =&gt;
+<span class="cstat-no" title="statement not covered" >  vtkStateBuilder</span>
     .createBuilder()
     .addField({ name: 'point1', initialValue: [0, -factor, 0] })
     .addField({ name: 'point2', initialValue: [0, factor, 0] })
@@ -399,8 +399,8 @@ const generateAxisZinX = () =&gt;
     .addField({ name: 'inViewType', initialValue: ViewTypes.YZ_PLANE })
     .build();
 &nbsp;
-const generateAxisZinY = () =&gt;
-  vtkStateBuilder
+const generateAxisZinY = <span class="fstat-no" title="function not covered" >()</span> =&gt;
+<span class="cstat-no" title="statement not covered" >  vtkStateBuilder</span>
     .createBuilder()
     .addField({ name: 'point1', initialValue: [-factor, 0, 0] })
     .addField({ name: 'point2', initialValue: [factor, 0, 0] })
@@ -410,8 +410,8 @@ const generateAxisZinY = () =&gt;
     .addField({ name: 'inViewType', initialValue: ViewTypes.XZ_PLANE })
     .build();
 &nbsp;
-export default function generateState() {
-  return vtkStateBuilder
+export default function <span class="fstat-no" title="function not covered" >generateState(</span>) {
+<span class="cstat-no" title="statement not covered" >  return vtkStateBuilder</span>
     .createBuilder()
     .addStateFromInstance({
       labels: ['AxisXinY'],
@@ -481,7 +481,7 @@ export default function generateState() {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Dec 14 2021 18:41:38 GMT+0000 (Coordinated Universal Time)
+                at Thu Dec 16 2021 14:59:16 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

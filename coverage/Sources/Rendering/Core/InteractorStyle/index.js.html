@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25.45% </span>
+                <span class="strong">7.27% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/55</span>
+                <span class='fraction'>4/55</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/9</span>
+                <span class='fraction'>0/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25.45% </span>
+                <span class="strong">7.27% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/55</span>
+                <span class='fraction'>4/55</span>
             </div>
         
             
@@ -225,23 +225,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">108x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">108x</span>
-<span class="cline-any cline-yes">756x</span>
-<span class="cline-any cline-yes">756x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">756x</span>
-<span class="cline-any cline-yes">756x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -249,12 +239,22 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">108x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -319,13 +319,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">108x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">108x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">108x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -362,15 +362,15 @@ const stateNames = {
 // vtkInteractorStyle methods
 // ----------------------------------------------------------------------------
 &nbsp;
-function vtkInteractorStyle(publicAPI, model) {
+function <span class="fstat-no" title="function not covered" >vtkInteractorStyle(</span>publicAPI, model) {
   // Set our className
-  model.classHierarchy.push('vtkInteractorStyle');
+<span class="cstat-no" title="statement not covered" >  model.classHierarchy.push('vtkInteractorStyle');</span>
 &nbsp;
   // Public API methods
   // create bunch of Start/EndState methods
-  Object.keys(stateNames).forEach((key) =&gt; {
-    macro.event(publicAPI, model, `Start${key}Event`);
-    publicAPI[`start${key}`] = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >  Object.keys(stateNames).forEach(<span class="fstat-no" title="function not covered" >(k</span>ey) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    macro.event(publicAPI, model, `Start${key}Event`);</span>
+<span class="cstat-no" title="statement not covered" >    publicAPI[`start${key}`] = <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      if (model.state !== States.IS_NONE) {</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
       }
@@ -379,8 +379,8 @@ function vtkInteractorStyle(publicAPI, model) {
 <span class="cstat-no" title="statement not covered" >      publicAPI.invokeStartInteractionEvent({ type: 'StartInteractionEvent' });</span>
 <span class="cstat-no" title="statement not covered" >      publicAPI[`invokeStart${key}Event`]({ type: `Start${key}Event` });</span>
     };
-    macro.event(publicAPI, model, `End${key}Event`);
-    publicAPI[`end${key}`] = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >    macro.event(publicAPI, model, `End${key}Event`);</span>
+<span class="cstat-no" title="statement not covered" >    publicAPI[`end${key}`] = <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      if (model.state !== stateNames[key]) {</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
       }
@@ -393,7 +393,7 @@ function vtkInteractorStyle(publicAPI, model) {
   });
 &nbsp;
   //----------------------------------------------------------------------------
-  publicAPI.handleKeyPress = <span class="fstat-no" title="function not covered" >(c</span>allData) =&gt; {
+<span class="cstat-no" title="statement not covered" >  publicAPI.handleKeyPress = <span class="fstat-no" title="function not covered" >(c</span>allData) =&gt; {</span>
     const rwi = <span class="cstat-no" title="statement not covered" >model.interactor;</span>
     let ac = <span class="cstat-no" title="statement not covered" >null;</span>
 <span class="cstat-no" title="statement not covered" >    switch (callData.key) {</span>
@@ -457,14 +457,14 @@ const DEFAULT_VALUES = {
 &nbsp;
 // ----------------------------------------------------------------------------
 &nbsp;
-export function extend(publicAPI, model, initialValues = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
-  Object.assign(model, DEFAULT_VALUES, initialValues);
+export function <span class="fstat-no" title="function not covered" >extend(</span>publicAPI, model, initialValues = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
+<span class="cstat-no" title="statement not covered" >  Object.assign(model, DEFAULT_VALUES, initialValues);</span>
 &nbsp;
   // Inheritance
-  vtkInteractorObserver.extend(publicAPI, model, initialValues);
+<span class="cstat-no" title="statement not covered" >  vtkInteractorObserver.extend(publicAPI, model, initialValues);</span>
 &nbsp;
   // Object specific methods
-  vtkInteractorStyle(publicAPI, model);
+<span class="cstat-no" title="statement not covered" >  vtkInteractorStyle(publicAPI, model);</span>
 }
 &nbsp;
 // ----------------------------------------------------------------------------
@@ -481,7 +481,7 @@ export default { newInstance, extend, ...Constants };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Dec 14 2021 18:41:38 GMT+0000 (Coordinated Universal Time)
+                at Thu Dec 16 2021 14:59:16 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>
