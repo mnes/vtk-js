@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.47% </span>
+                <span class="strong">33.89% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>238/711</span>
+                <span class='fraction'>242/714</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25.25% </span>
+                <span class="strong">25.51% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>100/396</span>
+                <span class='fraction'>101/396</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.04% </span>
+                <span class="strong">33.48% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>223/675</span>
+                <span class='fraction'>227/678</span>
             </div>
         
             
@@ -1772,7 +1772,10 @@
 <a name='L1713'></a><a href='#L1713'>1713</a>
 <a name='L1714'></a><a href='#L1714'>1714</a>
 <a name='L1715'></a><a href='#L1715'>1715</a>
-<a name='L1716'></a><a href='#L1716'>1716</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L1716'></a><a href='#L1716'>1716</a>
+<a name='L1717'></a><a href='#L1717'>1717</a>
+<a name='L1718'></a><a href='#L1718'>1718</a>
+<a name='L1719'></a><a href='#L1719'>1719</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -2319,16 +2322,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -2343,7 +2349,7 @@
 <span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -4034,11 +4040,13 @@ export function setArray(
 &nbsp;
       let array = args;
       let changeDetected;
+      let needCopy = false;
       // allow null or an array to be passed as a single arg.
       if (array.length === 1 &amp;&amp; (array[0] == null || array[0].length &gt;= 0)) {
         /* eslint-disable prefer-destructuring */
         array = array[0];
         /* eslint-enable prefer-destructuring */
+        needCopy = true;
       }
       <span class="missing-if-branch" title="if path not taken" >I</span>if (array == null) {
 <span class="cstat-no" title="statement not covered" >        changeDetected = model[field] !== array;</span>
@@ -4046,6 +4054,7 @@ export function setArray(
         if (size &amp;&amp; array.length !== size) {
           <span class="missing-if-branch" title="else path not taken" >E</span>if (array.length &lt; size &amp;&amp; defaultVal !== undefined) {
             array = Array.from(array);
+            needCopy = false;
             while (array.length &lt; size) array.push(defaultVal);
           } else {
 <span class="cstat-no" title="statement not covered" >            throw new RangeError(</span>
@@ -4057,8 +4066,8 @@ export function setArray(
           model[field] == null ||
           model[field].some((item, index) =&gt; item !== array[index]) ||
           model[field].length !== array.length;
-        <span class="missing-if-branch" title="if path not taken" >I</span>if (changeDetected &amp;&amp; !Array.isArray(array)) {
-<span class="cstat-no" title="statement not covered" >          array = Array.from(array);</span>
+        if (changeDetected &amp;&amp; needCopy) {
+          array = Array.from(array);
         }
       }
 &nbsp;
@@ -5209,7 +5218,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Dec 16 2021 14:59:16 GMT+0000 (Coordinated Universal Time)
+                at Tue Dec 21 2021 16:18:40 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../prettify.js"></script>
