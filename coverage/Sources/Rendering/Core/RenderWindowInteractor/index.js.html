@@ -32,21 +32,21 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/206</span>
+                <span class='fraction'>0/204</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/59</span>
+                <span class='fraction'>0/60</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">1.41% </span>
+                <span class="strong">1.4% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/427</span>
+                <span class='fraction'>6/428</span>
             </div>
         
             
@@ -1141,7 +1141,12 @@
 <a name='L1082'></a><a href='#L1082'>1082</a>
 <a name='L1083'></a><a href='#L1083'>1083</a>
 <a name='L1084'></a><a href='#L1084'>1084</a>
-<a name='L1085'></a><a href='#L1085'>1085</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L1085'></a><a href='#L1085'>1085</a>
+<a name='L1086'></a><a href='#L1086'>1086</a>
+<a name='L1087'></a><a href='#L1087'>1087</a>
+<a name='L1088'></a><a href='#L1088'>1088</a>
+<a name='L1089'></a><a href='#L1089'>1089</a>
+<a name='L1090'></a><a href='#L1090'>1090</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1163,6 +1168,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1559,14 +1566,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -2239,11 +2249,13 @@ const { vtkWarningMacro, vtkErrorMacro, normalizeWheel, vtkOnceErrorMacro } =
 // ----------------------------------------------------------------------------
 &nbsp;
 const deviceInputMap = {
-  'OpenVR Gamepad': [
-    Input.TrackPad,
+  'xr-standard': [
     Input.Trigger,
     Input.Grip,
-    Input.ApplicationMenu,
+    Input.TrackPad,
+    Input.Thumbstick,
+    Input.A,
+    Input.B,
   ],
 };
 &nbsp;
@@ -2642,55 +2654,58 @@ function <span class="fstat-no" title="function not covered" >vtkRenderWindowInt
     }
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  publicAPI.updateGamepads = <span class="fstat-no" title="function not covered" >(d</span>isplayId) =&gt; {</span>
-    const gamepads = <span class="cstat-no" title="statement not covered" >navigator.getGamepads();</span>
-&nbsp;
+<span class="cstat-no" title="statement not covered" >  publicAPI.updateXRGamepads = <span class="fstat-no" title="function not covered" >(x</span>rSession, xrFrame, xrRefSpace) =&gt; {</span>
     // watch for when buttons change state and fire events
-<span class="cstat-no" title="statement not covered" >    for (let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; gamepads.length; ++i) {</span>
-      const gp = <span class="cstat-no" title="statement not covered" >gamepads[i];</span>
-<span class="cstat-no" title="statement not covered" >      if (gp &amp;&amp; gp.displayId === displayId) {</span>
+<span class="cstat-no" title="statement not covered" >    xrSession.inputSources.forEach(<span class="fstat-no" title="function not covered" >(i</span>nputSource) =&gt; {</span>
+      const pose = <span class="cstat-no" title="statement not covered" >xrFrame.getPose(inputSource.gripSpace, xrRefSpace);</span>
+      const gp = <span class="cstat-no" title="statement not covered" >inputSource.gamepad;</span>
+      const hand = <span class="cstat-no" title="statement not covered" >inputSource.handedness;</span>
+<span class="cstat-no" title="statement not covered" >      if (gp) {</span>
 <span class="cstat-no" title="statement not covered" >        if (!(gp.index in model.lastGamepadValues)) {</span>
-<span class="cstat-no" title="statement not covered" >          model.lastGamepadValues[gp.index] = { buttons: {} };</span>
+<span class="cstat-no" title="statement not covered" >          model.lastGamepadValues[gp.index] = {</span>
+            left: { buttons: {} },
+            right: { buttons: {} },
+          };
         }
 <span class="cstat-no" title="statement not covered" >        for (let b = <span class="cstat-no" title="statement not covered" >0;</span> b &lt; gp.buttons.length; ++b) {</span>
-<span class="cstat-no" title="statement not covered" >          if (!(b in model.lastGamepadValues[gp.index].buttons)) {</span>
-<span class="cstat-no" title="statement not covered" >            model.lastGamepadValues[gp.index].buttons[b] = false;</span>
+<span class="cstat-no" title="statement not covered" >          if (!(b in model.lastGamepadValues[gp.index][hand].buttons)) {</span>
+<span class="cstat-no" title="statement not covered" >            model.lastGamepadValues[gp.index][hand].buttons[b] = false;</span>
           }
 <span class="cstat-no" title="statement not covered" >          if (</span>
-            model.lastGamepadValues[gp.index].buttons[b] !==
+            model.lastGamepadValues[gp.index][hand].buttons[b] !==
             gp.buttons[b].pressed
           ) {
 <span class="cstat-no" title="statement not covered" >            publicAPI.button3DEvent({</span>
               gamepad: gp,
-              position: gp.pose.position,
-              orientation: gp.pose.orientation,
+              position: pose.transform.position,
+              orientation: pose.transform.orientation,
               pressed: gp.buttons[b].pressed,
               device:
-                gp.hand === 'left'
+                inputSource.handedness === 'left'
                   ? Device.LeftController
                   : Device.RightController,
               input:
-                deviceInputMap[gp.id] &amp;&amp; deviceInputMap[gp.id][b]
-                  ? deviceInputMap[gp.id][b]
+                deviceInputMap[gp.mapping] &amp;&amp; deviceInputMap[gp.mapping][b]
+                  ? deviceInputMap[gp.mapping][b]
                   : Input.Trigger,
             });
-<span class="cstat-no" title="statement not covered" >            model.lastGamepadValues[gp.index].buttons[b] =</span>
+<span class="cstat-no" title="statement not covered" >            model.lastGamepadValues[gp.index][hand].buttons[b] =</span>
               gp.buttons[b].pressed;
           }
-<span class="cstat-no" title="statement not covered" >          if (model.lastGamepadValues[gp.index].buttons[b]) {</span>
+<span class="cstat-no" title="statement not covered" >          if (model.lastGamepadValues[gp.index][hand].buttons[b]) {</span>
 <span class="cstat-no" title="statement not covered" >            publicAPI.move3DEvent({</span>
               gamepad: gp,
-              position: gp.pose.position,
-              orientation: gp.pose.orientation,
+              position: pose.transform.position,
+              orientation: pose.transform.orientation,
               device:
-                gp.hand === 'left'
+                inputSource.handedness === 'left'
                   ? Device.LeftController
                   : Device.RightController,
             });
           }
         }
       }
-    }
+    });
   };
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  publicAPI.handleMouseMove = <span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {</span>
@@ -3316,7 +3331,7 @@ export default { newInstance, extend, handledEvents, ...Constants };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Dec 27 2021 21:15:51 GMT+0000 (Coordinated Universal Time)
+                at Mon Jan 03 2022 19:40:26 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>
