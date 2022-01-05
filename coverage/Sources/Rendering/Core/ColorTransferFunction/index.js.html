@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0.78% </span>
+                <span class="strong">0.77% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/640</span>
+                <span class='fraction'>5/647</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/274</span>
+                <span class='fraction'>0/278</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0.81% </span>
+                <span class="strong">0.8% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/618</span>
+                <span class='fraction'>5/625</span>
             </div>
         
             
@@ -1331,7 +1331,14 @@
 <a name='L1272'></a><a href='#L1272'>1272</a>
 <a name='L1273'></a><a href='#L1273'>1273</a>
 <a name='L1274'></a><a href='#L1274'>1274</a>
-<a name='L1275'></a><a href='#L1275'>1275</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L1275'></a><a href='#L1275'>1275</a>
+<a name='L1276'></a><a href='#L1276'>1276</a>
+<a name='L1277'></a><a href='#L1277'>1277</a>
+<a name='L1278'></a><a href='#L1278'>1278</a>
+<a name='L1279'></a><a href='#L1279'>1279</a>
+<a name='L1280'></a><a href='#L1280'>1280</a>
+<a name='L1281'></a><a href='#L1281'>1281</a>
+<a name='L1282'></a><a href='#L1282'>1282</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1549,7 +1556,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1557,12 +1567,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -2821,22 +2835,29 @@ function <span class="fstat-no" title="function not covered" >vtkColorTransferFu
   // Set nodes directly
 <span class="cstat-no" title="statement not covered" >  publicAPI.setNodes = <span class="fstat-no" title="function not covered" >(n</span>odes) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (model.nodes !== nodes) {</span>
+      const before = <span class="cstat-no" title="statement not covered" >JSON.stringify(model.nodes);</span>
 <span class="cstat-no" title="statement not covered" >      model.nodes = nodes;</span>
-<span class="cstat-no" title="statement not covered" >      publicAPI.sortAndUpdateRange();</span>
+      const after = <span class="cstat-no" title="statement not covered" >JSON.stringify(model.nodes);</span>
+<span class="cstat-no" title="statement not covered" >      return publicAPI.sortAndUpdateRange() || before !== after;</span>
     }
+<span class="cstat-no" title="statement not covered" >    return false;</span>
   };
 &nbsp;
   //----------------------------------------------------------------------------
   // Sort the vector in increasing order, then fill in
   // the Range
 <span class="cstat-no" title="statement not covered" >  publicAPI.sortAndUpdateRange = <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+    const before = <span class="cstat-no" title="statement not covered" >JSON.stringify(model.nodes);</span>
 <span class="cstat-no" title="statement not covered" >    model.nodes.sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a.x - b.x)</span>;</span>
+    const after = <span class="cstat-no" title="statement not covered" >JSON.stringify(model.nodes);</span>
 &nbsp;
     const modifiedInvoked = <span class="cstat-no" title="statement not covered" >publicAPI.updateRange();</span>
     // If range is updated, Modified() has been called, don't call it again.
-<span class="cstat-no" title="statement not covered" >    if (!modifiedInvoked) {</span>
+<span class="cstat-no" title="statement not covered" >    if (!modifiedInvoked &amp;&amp; before !== after) {</span>
 <span class="cstat-no" title="statement not covered" >      publicAPI.modified();</span>
+<span class="cstat-no" title="statement not covered" >      return true;</span>
     }
+<span class="cstat-no" title="statement not covered" >    return modifiedInvoked;</span>
   };
 &nbsp;
   //----------------------------------------------------------------------------
@@ -3886,7 +3907,7 @@ export default { newInstance, extend, ...Constants };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Jan 04 2022 19:54:22 GMT+0000 (Coordinated Universal Time)
+                at Wed Jan 05 2022 00:48:50 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>
