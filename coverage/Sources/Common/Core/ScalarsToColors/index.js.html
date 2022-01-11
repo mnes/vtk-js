@@ -23,7 +23,7 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">56.49% </span>
+                <span class="strong">56.48% </span>
                 <span class="quiet">Statements</span>
                 <span class='fraction'>148/262</span>
             </div>
@@ -54,6 +54,12 @@
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
     <div class='status-line medium'></div>
     <pre><table class="coverage">
@@ -626,7 +632,8 @@
 <a name='L567'></a><a href='#L567'>567</a>
 <a name='L568'></a><a href='#L568'>568</a>
 <a name='L569'></a><a href='#L569'>569</a>
-<a name='L570'></a><a href='#L570'>570</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L570'></a><a href='#L570'>570</a>
+<a name='L571'></a><a href='#L571'>571</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -981,6 +988,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -988,13 +1003,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1257,7 +1265,7 @@ function vtkScalarsToColors(publicAPI, model) {
 &nbsp;
     model.annotationArray = [];
 &nbsp;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (annotations &amp;&amp; values) {
+    if (annotations &amp;&amp; values) {
       const num = annotations.length;
       for (let i = 0; i &lt; num; i++) {
         model.annotationArray.push({
@@ -1285,7 +1293,7 @@ function vtkScalarsToColors(publicAPI, model) {
       i = model.annotationArray.length - 1;
       modified = true;
     }
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (modified) {
+    if (modified) {
       publicAPI.updateAnnotatedValueMap();
       publicAPI.modified();
     }
@@ -1319,7 +1327,7 @@ function vtkScalarsToColors(publicAPI, model) {
   publicAPI.removeAnnotation = (value) =&gt; {
     const i = publicAPI.checkForAnnotatedValue(value);
     const needToRemove = i &gt;= 0;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (needToRemove) {
+    if (needToRemove) {
       model.annotationArray.splice(i, 1);
       publicAPI.updateAnnotatedValueMap();
       publicAPI.modified();
@@ -1489,9 +1497,9 @@ function vtkScalarsToColors(publicAPI, model) {
     let vectorComponent = vectorComponentIn;
     const inComponents = input.getNumberOfComponents();
 &nbsp;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (vectorMode === VectorMode.COMPONENT) {
+    if (vectorMode === VectorMode.COMPONENT) {
       // make sure vectorComponent is within allowed range
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (vectorComponent === -1) {
+      if (vectorComponent === -1) {
         // if set to -1, use default value provided by table
         vectorComponent = publicAPI.getVectorComponent();
       }
@@ -1501,7 +1509,7 @@ function vtkScalarsToColors(publicAPI, model) {
       <span class="missing-if-branch" title="if path not taken" >I</span>if (vectorComponent &gt;= inComponents) {
 <span class="cstat-no" title="statement not covered" >        vectorComponent = inComponents - 1;</span>
       }
-    } else {
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>{
       // make sure vectorSize is within allowed range
 <span class="cstat-no" title="statement not covered" >      if (vectorSize === -1) {</span>
         // if set to -1, use default value provided by table
@@ -1532,7 +1540,7 @@ function vtkScalarsToColors(publicAPI, model) {
 &nbsp;
     // increment input pointer to the first component to map
     let inputOffset = 0;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (vectorComponent &gt; 0) {
+    if (vectorComponent &gt; 0) {
       inputOffset = vectorComponent;
     }
 &nbsp;
@@ -1548,8 +1556,16 @@ function vtkScalarsToColors(publicAPI, model) {
         break;
       }
 &nbsp;
-<span class="branch-1 cbranch-no" title="branch not covered" >      default:</span>
-<span class="branch-2 cbranch-no" title="branch not covered" >      case VectorMode.MAGNITUDE: {</span>
+<span class="branch-1 cbranch-no" title="branch not covered" >      case VectorMode.RGBCOLORS: {</span>
+        // publicAPI.mapColorsToColors(
+        //   input, output, inComponents, vectorSize,
+        //   outputFormat);
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      }
+&nbsp;
+      // MAGNITUDE is considered default
+<span class="branch-2 cbranch-no" title="branch not covered" >      case VectorMode.MAGNITUDE:</span>
+<span class="branch-3 cbranch-no" title="branch not covered" >      default: {</span>
         const magValues = <span class="cstat-no" title="statement not covered" >vtkDataArray.newInstance({</span>
           numberOfComponents: 1,
           values: new Float32Array(input.getNumberOfTuples()),
@@ -1557,13 +1573,6 @@ function vtkScalarsToColors(publicAPI, model) {
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        publicAPI.mapVectorsToMagnitude(input, magValues, vectorSize);</span>
 <span class="cstat-no" title="statement not covered" >        publicAPI.mapScalarsThroughTable(magValues, output, outputFormat, 0);</span>
-<span class="cstat-no" title="statement not covered" >        break;</span>
-      }
-&nbsp;
-<span class="branch-3 cbranch-no" title="branch not covered" >      case VectorMode.RGBCOLORS: {</span>
-        // publicAPI.mapColorsToColors(
-        //   input, output, inComponents, vectorSize,
-        //   outputFormat);
 <span class="cstat-no" title="statement not covered" >        break;</span>
       }
     }
@@ -1770,10 +1779,9 @@ export default { newInstance, extend, ...Constants };
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jan 07 2022 19:48:17 GMT+0000 (Coordinated Universal Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at Tue Jan 11 2022 15:38:44 GMT+0000 (Coordinated Universal Time)
             </div>
-        </div>
         <script src="../../../../prettify.js"></script>
         <script>
             window.onload = function () {

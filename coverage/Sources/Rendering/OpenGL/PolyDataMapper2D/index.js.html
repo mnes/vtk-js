@@ -30,7 +30,7 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">44.83% </span>
+                <span class="strong">44.82% </span>
                 <span class="quiet">Branches</span>
                 <span class='fraction'>91/203</span>
             </div>
@@ -44,7 +44,7 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.32% </span>
+                <span class="strong">72.31% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>256/354</span>
             </div>
@@ -54,6 +54,12 @@
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
     <div class='status-line medium'></div>
     <pre><table class="coverage">
@@ -1910,7 +1916,7 @@ function vtkOpenGLPolyDataMapper2D(publicAPI, model) {
 &nbsp;
   publicAPI.render = () =&gt; {
     const ctx = model.openGLRenderWindow.getContext();
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.context !== ctx) {
+    if (model.context !== ctx) {
       model.context = ctx;
       for (let i = primTypes.Start; i &lt; primTypes.End; i++) {
         model.primitives[i].setOpenGLRenderWindow(model.openGLRenderWindow);
@@ -1923,7 +1929,7 @@ function vtkOpenGLPolyDataMapper2D(publicAPI, model) {
 &nbsp;
   publicAPI.renderPiece = (ren, actor) =&gt; {
     publicAPI.invokeEvent(StartEvent);
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!model.renderable.getStatic()) {
+    if (!model.renderable.getStatic()) {
       model.renderable.update();
     }
     model.currentInput = model.renderable.getInputData();
@@ -1968,7 +1974,7 @@ function vtkOpenGLPolyDataMapper2D(publicAPI, model) {
     // property modified (representation interpolation and lighting)
     // input modified
     // light complexity changed
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (
+    if (
       cellBO.getProgram() === 0 ||
       cellBO.getShaderSourceTime().getMTime() &lt; publicAPI.getMTime() ||
 <span class="branch-2 cbranch-no" title="branch not covered" >      cellBO.getShaderSourceTime().getMTime() &lt; actor.getMTime() </span>||
@@ -1983,7 +1989,7 @@ function vtkOpenGLPolyDataMapper2D(publicAPI, model) {
 &nbsp;
   publicAPI.updateBufferObjects = (ren, actor) =&gt; {
     // Rebuild buffers if needed
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (publicAPI.getNeedToRebuildBufferObjects(ren, actor)) {
+    if (publicAPI.getNeedToRebuildBufferObjects(ren, actor)) {
       publicAPI.buildBufferObjects(ren, actor);
     }
   };
@@ -1992,7 +1998,7 @@ function vtkOpenGLPolyDataMapper2D(publicAPI, model) {
     // first do a coarse check
     // Note that the actor's mtime includes it's properties mtime
     const vmtime = model.VBOBuildTime.getMTime();
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (
+    if (
       vmtime &lt; publicAPI.getMTime() ||
 <span class="branch-1 cbranch-no" title="branch not covered" >      vmtime &lt; model.renderable.getMTime() </span>||
 <span class="branch-2 cbranch-no" title="branch not covered" >      vmtime &lt; actor.getMTime() </span>||
@@ -2048,7 +2054,7 @@ function vtkOpenGLPolyDataMapper2D(publicAPI, model) {
     const representation = actor.getProperty().getRepresentation();
 &nbsp;
     let tcoords = poly.getPointData().getTCoords();
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!model.openGLActor2D.getActiveTextures()) {
+    if (!model.openGLActor2D.getActiveTextures()) {
       tcoords = null;
     }
 &nbsp;
@@ -2059,10 +2065,10 @@ function vtkOpenGLPolyDataMapper2D(publicAPI, model) {
       `C${c ? <span class="branch-0 cbranch-no" title="branch not covered" >c.getMTime() </span>: 1}` +
       `D${tcoords ? <span class="branch-0 cbranch-no" title="branch not covered" >tcoords.getMTime() </span>: 1}` +
       `E${transformCoordinate ? ren.getMTime() : <span class="branch-1 cbranch-no" title="branch not covered" >1}</span>`;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.VBOBuildString !== toString) {
+    if (model.VBOBuildString !== toString) {
       // Build the VBOs
       let points = poly.getPoints();
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (transformCoordinate) {
+      if (transformCoordinate) {
         const p = vtkPoints.newInstance();
         const numPts = points.getNumberOfPoints();
         p.setNumberOfPoints(numPts);
@@ -2118,7 +2124,7 @@ function vtkOpenGLPolyDataMapper2D(publicAPI, model) {
           drawSurfaceWithEdges &amp;&amp;
           (<span class="branch-1 cbranch-no" title="branch not covered" >i === primTypes.TrisEdges </span>|| <span class="branch-2 cbranch-no" title="branch not covered" >i === primTypes.TriStripsEdges)</span>;
         const mode = publicAPI.getOpenGLMode(representation, i);
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (!model.drawingEdges || <span class="branch-1 cbranch-no" title="branch not covered" >!model.renderDepth)</span> {
+        if (!model.drawingEdges || <span class="branch-1 cbranch-no" title="branch not covered" >!model.renderDepth)</span> {
           publicAPI.updateShaders(model.primitives[i], ren, actor);
           gl.drawArrays(mode, 0, cabo.getElementCount());
         }
@@ -2363,7 +2369,7 @@ function vtkOpenGLPolyDataMapper2D(publicAPI, model) {
     model.lastBoundBO = cellBO;
 &nbsp;
     // has something changed that would require us to recreate the shader?
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (publicAPI.getNeedToRebuildShaders(cellBO, ren, actor)) {
+    if (publicAPI.getNeedToRebuildShaders(cellBO, ren, actor)) {
       const shaders = { Vertex: null, Fragment: null, Geometry: null };
       publicAPI.buildShaders(shaders, ren, actor);
 &nbsp;
@@ -2377,14 +2383,14 @@ function vtkOpenGLPolyDataMapper2D(publicAPI, model) {
         );
 &nbsp;
       // if the shader changed reinitialize the VAO
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (newShader !== cellBO.getProgram()) {
+      if (newShader !== cellBO.getProgram()) {
         cellBO.setProgram(newShader);
         // reset the VAO as the shader has changed
         cellBO.getVAO().releaseGraphicsResources();
       }
 &nbsp;
       cellBO.getShaderSourceTime().modified();
-    } else {
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >      model.openGLRenderWindow</span>
         .getShaderCache()
         .readyShaderProgram(cellBO.getProgram());
@@ -2413,7 +2419,7 @@ function vtkOpenGLPolyDataMapper2D(publicAPI, model) {
         .setUniformi('PrimitiveIDOffset', model.primitiveIDOffset);
     }
 &nbsp;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (cellBO.getProgram().isAttributeUsed('vertexWC')) {
+    if (cellBO.getProgram().isAttributeUsed('vertexWC')) {
       <span class="missing-if-branch" title="if path not taken" >I</span>if (
         !cellBO
           .getVAO()
@@ -2431,7 +2437,7 @@ function vtkOpenGLPolyDataMapper2D(publicAPI, model) {
 <span class="cstat-no" title="statement not covered" >        vtkErrorMacro('Error setting vertexWC in shader VAO.');</span>
       }
     }
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (
+    if (
       cellBO.getCABO().getElementCount() &amp;&amp;
       (model.VBOBuildTime.getMTime() &gt;
         cellBO.getAttributeUpdateTime().getMTime() ||
@@ -2527,7 +2533,7 @@ function vtkOpenGLPolyDataMapper2D(publicAPI, model) {
 &nbsp;
   publicAPI.setPropertyShaderParameters = (cellBO, ren, actor) =&gt; {
     const c = model.renderable.getColorMapColors();
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!c || <span class="branch-1 cbranch-no" title="branch not covered" >c.getNumberOfComponents() === 0)</span> {
+    if (!c || <span class="branch-1 cbranch-no" title="branch not covered" >c.getNumberOfComponents() === 0)</span> {
       const program = cellBO.getProgram();
       const ppty = actor.getProperty();
       const opacity = ppty.getOpacity();
@@ -2712,10 +2718,9 @@ registerOverride('vtkMapper2D', newInstance);
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jan 07 2022 19:48:17 GMT+0000 (Coordinated Universal Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at Tue Jan 11 2022 15:38:44 GMT+0000 (Coordinated Universal Time)
             </div>
-        </div>
         <script src="../../../../prettify.js"></script>
         <script>
             window.onload = function () {

@@ -44,7 +44,7 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">78.3% </span>
+                <span class="strong">78.29% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>368/470</span>
             </div>
@@ -54,6 +54,12 @@
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
     <div class='status-line medium'></div>
     <pre><table class="coverage">
@@ -2650,7 +2656,7 @@ function vtkOpenGLImageMapper(publicAPI, model) {
         );
 &nbsp;
       // if the shader changed reinitialize the VAO
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (newShader !== cellBO.getProgram()) {
+      if (newShader !== cellBO.getProgram()) {
         cellBO.setProgram(newShader);
         // reset the VAO as the shader has changed
         cellBO.getVAO().releaseGraphicsResources();
@@ -2678,7 +2684,7 @@ function vtkOpenGLImageMapper(publicAPI, model) {
         cellBO.getShaderSourceTime().getMTime() &gt;
           cellBO.getAttributeUpdateTime().getMTime())
     ) {
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (cellBO.getProgram().isAttributeUsed('vertexMC')) {
+      if (cellBO.getProgram().isAttributeUsed('vertexMC')) {
         <span class="missing-if-branch" title="if path not taken" >I</span>if (
           !cellBO
             .getVAO()
@@ -2696,7 +2702,7 @@ function vtkOpenGLImageMapper(publicAPI, model) {
 <span class="cstat-no" title="statement not covered" >          vtkErrorMacro('Error setting vertexMC in shader VAO.');</span>
         }
       }
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (
+      if (
         cellBO.getProgram().isAttributeUsed('tcoordMC') &amp;&amp;
         cellBO.getCABO().getTCoordOffset()
       ) {
@@ -2782,7 +2788,7 @@ function vtkOpenGLImageMapper(publicAPI, model) {
       const cp = publicAPI.getCoincidentParameters(ren, actor);
       cellBO.getProgram().setUniformf('coffset', cp.offset);
       // cfactor isn't always used when coffset is.
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (cellBO.getProgram().isUniformUsed('cfactor')) {
+      if (cellBO.getProgram().isUniformUsed('cfactor')) {
         cellBO.getProgram().setUniformf('cfactor', cp.factor);
       }
     }
@@ -2868,7 +2874,7 @@ function vtkOpenGLImageMapper(publicAPI, model) {
     model.pwfTexture.activate();
 &nbsp;
     // draw polygons
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.tris.getCABO().getElementCount()) {
+    if (model.tris.getCABO().getElementCount()) {
       // First we do the triangles, update the shader, set uniforms, etc.
       publicAPI.updateShaders(model.tris, ren, actor);
       gl.drawArrays(gl.TRIANGLES, 0, model.tris.getCABO().getElementCount());
@@ -3104,7 +3110,7 @@ function vtkOpenGLImageMapper(publicAPI, model) {
     <span class="missing-if-branch" title="if path not taken" >I</span>if (ijkMode === SlicingMode.J) {
 <span class="cstat-no" title="statement not covered" >      sliceOffset = nSlice - ext[2];</span>
     }
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (ijkMode === SlicingMode.K || ijkMode === SlicingMode.NONE) {
+    if (ijkMode === SlicingMode.K || ijkMode === SlicingMode.NONE) {
       sliceOffset = nSlice - ext[4];
     }
 &nbsp;
@@ -3112,7 +3118,7 @@ function vtkOpenGLImageMapper(publicAPI, model) {
     const toString = `${slice}A${image.getMTime()}A${imgScalars.getMTime()}B${publicAPI.getMTime()}C${model.renderable.getSlicingMode()}D${actor
       .getProperty()
       .getMTime()}`;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.VBOBuildString !== toString) {
+    if (model.VBOBuildString !== toString) {
       // Build the VBOs
       const dims = image.getDimensions();
       if (iType === InterpolationType.NEAREST) {
@@ -3197,7 +3203,7 @@ function vtkOpenGLImageMapper(publicAPI, model) {
 <span class="cstat-no" title="statement not covered" >        ptsArray[9] = ext[1];</span>
 <span class="cstat-no" title="statement not covered" >        ptsArray[10] = slice;</span>
 <span class="cstat-no" title="statement not covered" >        ptsArray[11] = ext[5];</span>
-      } else <span class="missing-if-branch" title="else path not taken" >E</span>if (ijkMode === SlicingMode.K || ijkMode === SlicingMode.NONE) {
+      } else if (ijkMode === SlicingMode.K || ijkMode === SlicingMode.NONE) {
         scalars = basicScalars.subarray(
           sliceOffset * sliceSize,
           (sliceOffset + 1) * sliceSize
@@ -3214,7 +3220,7 @@ function vtkOpenGLImageMapper(publicAPI, model) {
         ptsArray[9] = ext[1];
         ptsArray[10] = ext[3];
         ptsArray[11] = slice;
-      } else {
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >        vtkErrorMacro('Reformat slicing not yet supported.');</span>
       }
 &nbsp;
@@ -3330,10 +3336,9 @@ registerOverride('vtkImageMapper', newInstance);
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jan 07 2022 19:48:17 GMT+0000 (Coordinated Universal Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at Tue Jan 11 2022 15:38:44 GMT+0000 (Coordinated Universal Time)
             </div>
-        </div>
         <script src="../../../../prettify.js"></script>
         <script>
             window.onload = function () {

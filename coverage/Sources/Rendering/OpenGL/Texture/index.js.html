@@ -30,7 +30,7 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">46.13% </span>
+                <span class="strong">46.12% </span>
                 <span class="quiet">Branches</span>
                 <span class='fraction'>137/297</span>
             </div>
@@ -44,7 +44,7 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.01% </span>
+                <span class="strong">53% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>335/632</span>
             </div>
@@ -54,6 +54,12 @@
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
     <div class='status-line medium'></div>
     <pre><table class="coverage">
@@ -3075,7 +3081,7 @@ function vtkOpenGLTexture(publicAPI, model) {
 <span class="cstat-no" title="statement not covered" >      publicAPI.setWrapT(Wrap.REPEAT);</span>
     }
     // clear image if input data is set
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.renderable.getInputData()) {
+    if (model.renderable.getInputData()) {
       model.renderable.setImage(null);
     }
     // create the texture if it is not done already
@@ -3099,7 +3105,7 @@ function vtkOpenGLTexture(publicAPI, model) {
       }
       // if we have Inputdata
       const input = model.renderable.getInputData(0);
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (input &amp;&amp; input.getPointData().getScalars()) {
+      if (input &amp;&amp; input.getPointData().getScalars()) {
         const ext = input.getExtent();
         const inScalars = input.getPointData().getScalars();
 &nbsp;
@@ -3143,7 +3149,7 @@ function vtkOpenGLTexture(publicAPI, model) {
         model.textureBuildTime.modified();
       }
     }
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.handle) {
+    if (model.handle) {
       publicAPI.activate();
     }
   };
@@ -3172,7 +3178,7 @@ function vtkOpenGLTexture(publicAPI, model) {
     if (!model.handle) {
       model.handle = model.context.createTexture();
 &nbsp;
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (model.target) {
+      if (model.target) {
         model.context.bindTexture(model.target, model.handle);
 &nbsp;
         // See: http://www.openmodel.context..org/wiki/Common_Mistakes#Creating_a_complete_texture
@@ -3199,7 +3205,7 @@ function vtkOpenGLTexture(publicAPI, model) {
           model.context.TEXTURE_WRAP_T,
           publicAPI.getOpenGLWrapMode(model.wrapT)
         );
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (model.openGLRenderWindow.getWebgl2()) {
+        if (model.openGLRenderWindow.getWebgl2()) {
           model.context.texParameteri(
             model.target,
             model.context.TEXTURE_WRAP_R,
@@ -3214,7 +3220,7 @@ function vtkOpenGLTexture(publicAPI, model) {
 &nbsp;
   //---------------------------------------------------------------------------
   publicAPI.getTextureUnit = () =&gt; {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.openGLRenderWindow) {
+    if (model.openGLRenderWindow) {
       return model.openGLRenderWindow.getTextureUnitForTexture(publicAPI);
     }
 <span class="cstat-no" title="statement not covered" >    return -1;</span>
@@ -3229,7 +3235,7 @@ function vtkOpenGLTexture(publicAPI, model) {
 &nbsp;
   //---------------------------------------------------------------------------
   publicAPI.deactivate = () =&gt; {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.openGLRenderWindow) {
+    if (model.openGLRenderWindow) {
       model.openGLRenderWindow.deactivateTexture(publicAPI);
     }
   };
@@ -3299,7 +3305,7 @@ function vtkOpenGLTexture(publicAPI, model) {
       model.context.TEXTURE_WRAP_T,
       publicAPI.getOpenGLWrapMode(model.wrapT)
     );
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.openGLRenderWindow.getWebgl2()) {
+    if (model.openGLRenderWindow.getWebgl2()) {
       model.context.texParameteri(
         model.target,
         model.context.TEXTURE_WRAP_R,
@@ -3319,7 +3325,7 @@ function vtkOpenGLTexture(publicAPI, model) {
       publicAPI.getOpenGLFilterMode(model.magnificationFilter)
     );
 &nbsp;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.openGLRenderWindow.getWebgl2()) {
+    if (model.openGLRenderWindow.getWebgl2()) {
       model.context.texParameteri(
         model.target,
         model.context.TEXTURE_BASE_LEVEL,
@@ -3367,7 +3373,7 @@ function vtkOpenGLTexture(publicAPI, model) {
       numComps,
       false
     );
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (result) {
+    if (result) {
       return result;
     }
 &nbsp;
@@ -3404,7 +3410,7 @@ function vtkOpenGLTexture(publicAPI, model) {
 &nbsp;
   //----------------------------------------------------------------------------
   publicAPI.getDefaultFormat = (vtktype, numComps) =&gt; {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.openGLRenderWindow.getWebgl2()) {
+    if (model.openGLRenderWindow.getWebgl2()) {
       switch (numComps) {
         case 1:
           return model.context.RED;
@@ -3417,7 +3423,7 @@ function vtkOpenGLTexture(publicAPI, model) {
 <span class="branch-4 cbranch-no" title="branch not covered" >        default:</span>
 <span class="cstat-no" title="statement not covered" >          return model.context.RGB;</span>
       }
-    } else {
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>{
       // webgl1
 <span class="cstat-no" title="statement not covered" >      switch (numComps) {</span>
         case 1:
@@ -3444,7 +3450,7 @@ function vtkOpenGLTexture(publicAPI, model) {
   //----------------------------------------------------------------------------
   publicAPI.getDefaultDataType = (vtkScalarType, useHalfFloatType = <span class="branch-0 cbranch-no" title="branch not covered" >false)</span> =&gt; {
     // DON'T DEAL with VTK_CHAR as this is platform dependent.
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.openGLRenderWindow.getWebgl2()) {
+    if (model.openGLRenderWindow.getWebgl2()) {
       switch (vtkScalarType) {
         // case VtkDataTypes.SIGNED_CHAR:
         //   return model.context.BYTE;
@@ -3650,7 +3656,7 @@ function vtkOpenGLTexture(publicAPI, model) {
 &nbsp;
   //----------------------------------------------------------------------------
   function scaleTextureToHighestPowerOfTwo(data) {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.openGLRenderWindow.getWebgl2()) {
+    if (model.openGLRenderWindow.getWebgl2()) {
       // No need if webGL2
       return data;
     }
@@ -4196,7 +4202,7 @@ function vtkOpenGLTexture(publicAPI, model) {
     );
 &nbsp;
     // WebGL2 path, we have 3d textures etc
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.openGLRenderWindow.getWebgl2()) {
+    if (model.openGLRenderWindow.getWebgl2()) {
       if (
         dataType === VtkDataTypes.FLOAT ||
         (useHalfFloat &amp;&amp;
@@ -4416,7 +4422,7 @@ function vtkOpenGLTexture(publicAPI, model) {
     publicAPI.releaseGraphicsResources();
     model.openGLRenderWindow = rw;
     model.context = null;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (rw) {
+    if (rw) {
       model.context = model.openGLRenderWindow.getContext();
     }
   };
@@ -4518,10 +4524,9 @@ registerOverride('vtkTexture', newInstance);
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jan 07 2022 19:48:17 GMT+0000 (Coordinated Universal Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at Tue Jan 11 2022 15:38:44 GMT+0000 (Coordinated Universal Time)
             </div>
-        </div>
         <script src="../../../../prettify.js"></script>
         <script>
             window.onload = function () {

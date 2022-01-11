@@ -44,7 +44,7 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.41% </span>
+                <span class="strong">88.4% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>122/138</span>
             </div>
@@ -54,6 +54,12 @@
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
     <div class='status-line high'></div>
     <pre><table class="coverage">
@@ -1033,7 +1039,7 @@ function vtkOpenGLStickMapper(publicAPI, model) {
     <span class="missing-if-branch" title="if path not taken" >I</span>if (model.context.getExtension('EXT_frag_depth')) {
 <span class="cstat-no" title="statement not covered" >      fragString = '  gl_FragDepthEXT = (pos.z / pos.w + 1.0) / 2.0;\n';</span>
     }
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.openGLRenderWindow.getWebgl2()) {
+    if (model.openGLRenderWindow.getWebgl2()) {
       fragString = 'gl_FragDepth = (pos.z / pos.w + 1.0) / 2.0;\n';
     }
     // see https://www.cl.cam.ac.uk/teaching/1999/AGraphHCI/SMAG/node2.html
@@ -1141,7 +1147,7 @@ function vtkOpenGLStickMapper(publicAPI, model) {
         cellBO.getShaderSourceTime().getMTime() &gt;
           cellBO.getAttributeUpdateTime().getMTime())
     ) {
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (cellBO.getProgram().isAttributeUsed('orientMC')) {
+      if (cellBO.getProgram().isAttributeUsed('orientMC')) {
         <span class="missing-if-branch" title="if path not taken" >I</span>if (
           !cellBO.getVAO().addAttributeArray(
             cellBO.getProgram(),
@@ -1157,7 +1163,7 @@ function vtkOpenGLStickMapper(publicAPI, model) {
 <span class="cstat-no" title="statement not covered" >          vtkErrorMacro("Error setting 'orientMC' in shader VAO.");</span>
         }
       }
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (cellBO.getProgram().isAttributeUsed('offsetMC')) {
+      if (cellBO.getProgram().isAttributeUsed('offsetMC')) {
         <span class="missing-if-branch" title="if path not taken" >I</span>if (
           !cellBO
             .getVAO()
@@ -1175,7 +1181,7 @@ function vtkOpenGLStickMapper(publicAPI, model) {
 <span class="cstat-no" title="statement not covered" >          vtkErrorMacro("Error setting 'offsetMC' in shader VAO.");</span>
         }
       }
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (cellBO.getProgram().isAttributeUsed('radiusMC')) {
+      if (cellBO.getProgram().isAttributeUsed('radiusMC')) {
         <span class="missing-if-branch" title="if path not taken" >I</span>if (
           !cellBO.getVAO().addAttributeArray(
             cellBO.getProgram(),
@@ -1202,7 +1208,7 @@ function vtkOpenGLStickMapper(publicAPI, model) {
     const cam = ren.getActiveCamera();
     const keyMats = model.openGLCamera.getKeyMatrices(ren);
 &nbsp;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (program.isUniformUsed('VCPCMatrix')) {
+    if (program.isUniformUsed('VCPCMatrix')) {
       program.setUniformMatrix('VCPCMatrix', keyMats.vcpc);
     }
 &nbsp;
@@ -1219,15 +1225,15 @@ function vtkOpenGLStickMapper(publicAPI, model) {
 <span class="cstat-no" title="statement not covered" >        program.setUniformMatrix3x3('normalMatrix', anorms);</span>
       }
     } else {
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (program.isUniformUsed('MCVCMatrix')) {
+      if (program.isUniformUsed('MCVCMatrix')) {
         program.setUniformMatrix('MCVCMatrix', keyMats.wcvc);
       }
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (program.isUniformUsed('normalMatrix')) {
+      if (program.isUniformUsed('normalMatrix')) {
         program.setUniformMatrix3x3('normalMatrix', keyMats.normalMatrix);
       }
     }
 &nbsp;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (program.isUniformUsed('cameraParallel')) {
+    if (program.isUniformUsed('cameraParallel')) {
       cellBO
         .getProgram()
         .setUniformi('cameraParallel', cam.getParallelProjection());
@@ -1261,11 +1267,11 @@ function vtkOpenGLStickMapper(publicAPI, model) {
     let colorComponents = 0;
     vbo.setColorBOStride(4);
 &nbsp;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!vbo.getColorBO()) {
+    if (!vbo.getColorBO()) {
       vbo.setColorBO(vtkBufferObject.newInstance());
     }
     vbo.getColorBO().setOpenGLRenderWindow(model.openGLRenderWindow);
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (c) {
+    if (c) {
       colorComponents = c.getNumberOfComponents();
       vbo.setColorOffset(4);
       colorData = c.getData();
@@ -1284,21 +1290,21 @@ function vtkOpenGLStickMapper(publicAPI, model) {
     //
     // Generate points and point data for sides
     //
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (
+    if (
       model.renderable.getScaleArray() != null &amp;&amp;
       pointData.hasArray(model.renderable.getScaleArray())
     ) {
       scales = pointData.getArray(model.renderable.getScaleArray()).getData();
     }
 &nbsp;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (
+    if (
       model.renderable.getOrientationArray() != null &amp;&amp;
       pointData.hasArray(model.renderable.getOrientationArray())
     ) {
       orientationArray = pointData
         .getArray(model.renderable.getOrientationArray())
         .getData();
-    } else {
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >      vtkErrorMacro([</span>
         'Error setting orientationArray.\n',
         'You have to specify the stick orientation',
@@ -1342,7 +1348,7 @@ function vtkOpenGLStickMapper(publicAPI, model) {
     for (let i = 0; i &lt; numPoints; ++i) {
       let length = model.renderable.getLength();
       let radius = model.renderable.getRadius();
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (scales) {
+      if (scales) {
         length = scales[i * 2];
         radius = scales[i * 2 + 1];
       }
@@ -1364,7 +1370,7 @@ function vtkOpenGLStickMapper(publicAPI, model) {
         packedUCVBO[ucIdx++] = 255;
 &nbsp;
         colorIdx = i * colorComponents;
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (colorData) {
+        if (colorData) {
           packedUCVBO[ucIdx++] = colorData[colorIdx];
           packedUCVBO[ucIdx++] = colorData[colorIdx + 1];
           packedUCVBO[ucIdx++] = colorData[colorIdx + 2];
@@ -1413,10 +1419,9 @@ registerOverride('vtkStickMapper', newInstance);
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jan 07 2022 19:48:17 GMT+0000 (Coordinated Universal Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at Tue Jan 11 2022 15:38:44 GMT+0000 (Coordinated Universal Time)
             </div>
-        </div>
         <script src="../../../../prettify.js"></script>
         <script>
             window.onload = function () {

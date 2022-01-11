@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">1% </span>
+                <span class="strong">1.04% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/100</span>
+                <span class='fraction'>1/96</span>
             </div>
         
             
@@ -54,6 +54,12 @@
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
     <div class='status-line low'></div>
     <pre><table class="coverage">
@@ -563,7 +569,7 @@ function <span class="fstat-no" title="function not covered" >fetchBinary(</span
   });
 }
 &nbsp;
-function <span class="fstat-no" title="function not covered" >fetchArray(</span>instance = <span class="branch-0 cbranch-no" title="branch not covered" >{},</span> baseURL, array, options = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
+function <span class="fstat-no" title="function not covered" >fetchArray(</span>instance, baseURL, array, options = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
 <span class="cstat-no" title="statement not covered" >  if (options &amp;&amp; options.compression) {</span>
 <span class="cstat-no" title="statement not covered" >    return REJECT_COMPRESSION();</span>
   }
@@ -576,7 +582,7 @@ function <span class="fstat-no" title="function not covered" >fetchArray(</span>
 <span class="cstat-no" title="statement not covered" >      xhr.onreadystatechange = <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        if (xhr.readyState === 1) {</span>
 <span class="cstat-no" title="statement not covered" >          array.ref.pending = true;</span>
-<span class="cstat-no" title="statement not covered" >          if (++requestCount === 1 &amp;&amp; instance.invokeBusy) {</span>
+<span class="cstat-no" title="statement not covered" >          if (++requestCount === 1 &amp;&amp; instance?.invokeBusy) {</span>
 <span class="cstat-no" title="statement not covered" >            instance.invokeBusy(true);</span>
           }
         }
@@ -608,10 +614,10 @@ function <span class="fstat-no" title="function not covered" >fetchArray(</span>
 &nbsp;
             // Done with the ref and work
 <span class="cstat-no" title="statement not covered" >            delete array.ref;</span>
-<span class="cstat-no" title="statement not covered" >            if (--requestCount === 0 &amp;&amp; instance.invokeBusy) {</span>
+<span class="cstat-no" title="statement not covered" >            if (--requestCount === 0 &amp;&amp; instance?.invokeBusy) {</span>
 <span class="cstat-no" title="statement not covered" >              instance.invokeBusy(false);</span>
             }
-<span class="cstat-no" title="statement not covered" >            if (instance.modified) {</span>
+<span class="cstat-no" title="statement not covered" >            if (instance?.modified) {</span>
 <span class="cstat-no" title="statement not covered" >              instance.modified();</span>
             }
 <span class="cstat-no" title="statement not covered" >            resolve(array);</span>
@@ -632,7 +638,7 @@ function <span class="fstat-no" title="function not covered" >fetchArray(</span>
 &nbsp;
 // ----------------------------------------------------------------------------
 &nbsp;
-function <span class="fstat-no" title="function not covered" >fetchJSON(</span>instance = <span class="branch-0 cbranch-no" title="branch not covered" >{},</span> url, options = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
+function <span class="fstat-no" title="function not covered" >fetchJSON(</span>instance, url, options = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
 <span class="cstat-no" title="statement not covered" >  if (options &amp;&amp; options.compression) {</span>
 <span class="cstat-no" title="statement not covered" >    return REJECT_COMPRESSION();</span>
   }
@@ -642,12 +648,12 @@ function <span class="fstat-no" title="function not covered" >fetchJSON(</span>i
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    xhr.onreadystatechange = <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      if (xhr.readyState === 1) {</span>
-<span class="cstat-no" title="statement not covered" >        if (++requestCount === 1 &amp;&amp; instance.invokeBusy) {</span>
+<span class="cstat-no" title="statement not covered" >        if (++requestCount === 1 &amp;&amp; instance?.invokeBusy) {</span>
 <span class="cstat-no" title="statement not covered" >          instance.invokeBusy(true);</span>
         }
       }
 <span class="cstat-no" title="statement not covered" >      if (xhr.readyState === 4) {</span>
-<span class="cstat-no" title="statement not covered" >        if (--requestCount === 0 &amp;&amp; instance.invokeBusy) {</span>
+<span class="cstat-no" title="statement not covered" >        if (--requestCount === 0 &amp;&amp; instance?.invokeBusy) {</span>
 <span class="cstat-no" title="statement not covered" >          instance.invokeBusy(false);</span>
         }
 <span class="cstat-no" title="statement not covered" >        if (xhr.status === 200 || xhr.status === 0) {</span>
@@ -666,7 +672,7 @@ function <span class="fstat-no" title="function not covered" >fetchJSON(</span>i
 &nbsp;
 // ----------------------------------------------------------------------------
 &nbsp;
-function <span class="fstat-no" title="function not covered" >fetchText(</span>instance = <span class="branch-0 cbranch-no" title="branch not covered" >{},</span> url, options = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
+function <span class="fstat-no" title="function not covered" >fetchText(</span>instance, url, options = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
 <span class="cstat-no" title="statement not covered" >  if (options &amp;&amp; options.compression) {</span>
 <span class="cstat-no" title="statement not covered" >    return REJECT_COMPRESSION();</span>
   }
@@ -676,12 +682,12 @@ function <span class="fstat-no" title="function not covered" >fetchText(</span>i
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    xhr.onreadystatechange = <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      if (xhr.readyState === 1) {</span>
-<span class="cstat-no" title="statement not covered" >        if (++requestCount === 1 &amp;&amp; instance.invokeBusy) {</span>
+<span class="cstat-no" title="statement not covered" >        if (++requestCount === 1 &amp;&amp; instance?.invokeBusy) {</span>
 <span class="cstat-no" title="statement not covered" >          instance.invokeBusy(true);</span>
         }
       }
 <span class="cstat-no" title="statement not covered" >      if (xhr.readyState === 4) {</span>
-<span class="cstat-no" title="statement not covered" >        if (--requestCount === 0 &amp;&amp; instance.invokeBusy) {</span>
+<span class="cstat-no" title="statement not covered" >        if (--requestCount === 0 &amp;&amp; instance?.invokeBusy) {</span>
 <span class="cstat-no" title="statement not covered" >          instance.invokeBusy(false);</span>
         }
 <span class="cstat-no" title="statement not covered" >        if (xhr.status === 200 || xhr.status === 0) {</span>
@@ -700,7 +706,7 @@ function <span class="fstat-no" title="function not covered" >fetchText(</span>i
 &nbsp;
 // ----------------------------------------------------------------------------
 &nbsp;
-function <span class="fstat-no" title="function not covered" >fetchImage(</span>instance = <span class="branch-0 cbranch-no" title="branch not covered" >{},</span> url, options = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
+function <span class="fstat-no" title="function not covered" >fetchImage(</span>instance, url, options = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
 <span class="cstat-no" title="statement not covered" >  return new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt; {</span>
     const img = <span class="cstat-no" title="statement not covered" >new Image();</span>
 <span class="cstat-no" title="statement not covered" >    if (options.crossOrigin) {</span>
@@ -735,10 +741,9 @@ export default LiteHttpDataAccessHelper;
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jan 07 2022 19:48:17 GMT+0000 (Coordinated Universal Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at Tue Jan 11 2022 15:38:44 GMT+0000 (Coordinated Universal Time)
             </div>
-        </div>
         <script src="../../../../prettify.js"></script>
         <script>
             window.onload = function () {

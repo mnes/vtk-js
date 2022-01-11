@@ -23,7 +23,7 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.54% </span>
+                <span class="strong">66.53% </span>
                 <span class="quiet">Statements</span>
                 <span class='fraction'>344/517</span>
             </div>
@@ -37,14 +37,14 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">81.82% </span>
+                <span class="strong">81.81% </span>
                 <span class="quiet">Functions</span>
                 <span class='fraction'>9/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">67.44% </span>
+                <span class="strong">67.43% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>321/476</span>
             </div>
@@ -54,6 +54,12 @@
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
     <div class='status-line medium'></div>
     <pre><table class="coverage">
@@ -1920,9 +1926,9 @@ function vtkTubeFilter(publicAPI, model) {
 &nbsp;
   function computeOffset(offset, npts) {
     let newOffset = offset;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.sidesShareVertices) {
+    if (model.sidesShareVertices) {
       newOffset += model.numberOfSides * npts;
-    } else {
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>{
       // points are duplicated
 <span class="cstat-no" title="statement not covered" >      newOffset += 2 * model.numberOfSides * npts;</span>
     }
@@ -1940,7 +1946,7 @@ function vtkTubeFilter(publicAPI, model) {
     while (end &lt; pointIds.length) {
       const endPtId = pointIds[end];
       const pe = points.slice(3 * endPtId, 3 * (endPtId + 1));
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (ps !== pe) {
+      if (ps !== pe) {
         return end - 1;
       }
 <span class="cstat-no" title="statement not covered" >      ++end;</span>
@@ -1958,14 +1964,14 @@ function vtkTubeFilter(publicAPI, model) {
       <span class="missing-if-branch" title="if path not taken" >I</span>if (npts === 1) {
         // return arbitrary
 <span class="cstat-no" title="statement not covered" >        normals.setTuple(lineData[i + 1], normal);</span>
-      } else <span class="missing-if-branch" title="else path not taken" >E</span>if (npts &gt; 1) {
+      } else if (npts &gt; 1) {
         let sNextId = 0;
         let sPrev = [0, 0, 0];
         const sNext = [0, 0, 0];
 &nbsp;
         const linePts = lineData.slice(i + 1, i + 1 + npts);
         sNextId = findNextValidSegment(pts, linePts, 0);
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (sNextId !== npts) {
+        if (sNextId !== npts) {
           // at least one valid segment
           let pt1Id = linePts[sNextId];
           let pt1 = pts.slice(3 * pt1Id, 3 * (pt1Id + 1));
@@ -1997,7 +2003,7 @@ function vtkTubeFilter(publicAPI, model) {
                 // searching for the next valid segment
                 const n = [0.0, 0.0, 0.0];
                 vtkMath.cross(sPrev, sNext, n);
-                <span class="missing-if-branch" title="else path not taken" >E</span>if (vtkMath.norm(n) &gt; 1.0e-3) {
+                if (vtkMath.norm(n) &gt; 1.0e-3) {
                   normal = n;
                   sPrev = sNext;
                   break;
@@ -2009,7 +2015,7 @@ function vtkTubeFilter(publicAPI, model) {
               // only one valid segment
               // a little trick to find orthogonal normal
               for (let j = 0; j &lt; 3; ++j) {
-                <span class="missing-if-branch" title="else path not taken" >E</span>if (sPrev[j] !== 0.0) {
+                if (sPrev[j] !== 0.0) {
                   normal[(j + 2) % 3] = 0.0;
                   normal[(j + 1) % 3] = 1.0;
                   normal[j] = -sPrev[(j + 1) % 3] / sPrev[j];
@@ -2041,7 +2047,7 @@ function vtkTubeFilter(publicAPI, model) {
             // compute rotation vector
             const w = [0.0, 0.0, 0.0];
             vtkMath.cross(sPrev, normal, w);
-            <span class="missing-if-branch" title="else path not taken" >E</span>if (vtkMath.normalize(w) !== 0.0) {
+            if (vtkMath.normalize(w) !== 0.0) {
               // can't use this segment otherwise
               const q = [0.0, 0.0, 0.0];
               vtkMath.cross(sNext, sPrev, q);
@@ -2082,7 +2088,7 @@ function vtkTubeFilter(publicAPI, model) {
           for (let j = lastNormalId; j &lt; npts; ++j) {
             normals.setTuple(linePts[j], normal);
           }
-        } else {
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>{
           // no valid segments
 <span class="cstat-no" title="statement not covered" >          for (let j = <span class="cstat-no" title="statement not covered" >0;</span> j &lt; npts; ++j) {</span>
 <span class="cstat-no" title="statement not covered" >            normals.setTuple(linePts[j], normal);</span>
@@ -2211,7 +2217,7 @@ function vtkTubeFilter(publicAPI, model) {
       }
 &nbsp;
       // create points around line
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (model.sidesShareVertices) {
+      if (model.sidesShareVertices) {
         for (let k = 0; k &lt; model.numberOfSides; ++k) {
           for (let i = 0; i &lt; 3; ++i) {
             normal[i] =
@@ -2223,7 +2229,7 @@ function vtkTubeFilter(publicAPI, model) {
           outPD.passData(pd, pts[j], ptId);
           ptId++;
         } // for each side
-      } else {
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>{
         const nRight = <span class="cstat-no" title="statement not covered" >[0, 0, 0];</span>
         const nLeft = <span class="cstat-no" title="statement not covered" >[0, 0, 0];</span>
 <span class="cstat-no" title="statement not covered" >        for (let k = <span class="cstat-no" title="statement not covered" >0;</span> k &lt; model.numberOfSides; ++k) {</span>
@@ -2310,13 +2316,13 @@ function vtkTubeFilter(publicAPI, model) {
     const newStripsData = newStrips.getData();
     let cellId = 0;
     while (outCellIdx &lt; newStripsData.length) {
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (cellId === outCellId) {
+      if (cellId === outCellId) {
         break;
       }
 <span class="cstat-no" title="statement not covered" >      outCellIdx += newStripsData[outCellIdx] + 1;</span>
 <span class="cstat-no" title="statement not covered" >      cellId++;</span>
     }
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.sidesShareVertices) {
+    if (model.sidesShareVertices) {
       for (
         let k = offset;
         k &lt; model.numberOfSides + offset;
@@ -2332,7 +2338,7 @@ function vtkTubeFilter(publicAPI, model) {
         }
         outCD.passData(inCD, inCellId, newOutCellId++);
       } // for each side of the tube
-    } else {
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >      for (</span>
         let k = <span class="cstat-no" title="statement not covered" >offset;</span>
         k &lt; model.numberOfSides + offset;
@@ -2572,7 +2578,7 @@ function vtkTubeFilter(publicAPI, model) {
     let inNormals = input.getPointData().getNormals();
     let inNormalsData = null;
     let generateNormals = false;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!inNormals || <span class="branch-1 cbranch-no" title="branch not covered" >model.useDefaultNormal)</span> {
+    if (!inNormals || <span class="branch-1 cbranch-no" title="branch not covered" >model.useDefaultNormal)</span> {
       inNormalsData = new Float32Array(3 * numPts);
       inNormals = vtkDataArray.newInstance({
         numberOfComponents: 3,
@@ -2690,15 +2696,15 @@ function vtkTubeFilter(publicAPI, model) {
     for (let i = 0; i &lt; inLinesData.length; i += npts + 1) {
       npts = inLinesData[i];
       const pts = inLinesData.slice(i + 1, i + 1 + npts);
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (npts &gt; 1) {
+      if (npts &gt; 1) {
         // if not, skip tubing this line
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (generateNormals) {
+        if (generateNormals) {
           const polyLine = inLinesData.slice(i, i + npts + 1);
           generateSlidingNormals(inPts.getData(), polyLine, inNormals);
         }
       }
       // generate points
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (
+      if (
         generatePoints(
           offset,
           npts,
@@ -2737,7 +2743,7 @@ function vtkTubeFilter(publicAPI, model) {
             newTCoords.getData()
           );
         }
-      } else {
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>{
         // skip tubing this line
 <span class="cstat-no" title="statement not covered" >        vtkWarningMacro('Could not generate points');</span>
       }
@@ -2820,10 +2826,9 @@ export default { newInstance, extend };
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jan 07 2022 19:48:17 GMT+0000 (Coordinated Universal Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at Tue Jan 11 2022 15:38:44 GMT+0000 (Coordinated Universal Time)
             </div>
-        </div>
         <script src="../../../../prettify.js"></script>
         <script>
             window.onload = function () {

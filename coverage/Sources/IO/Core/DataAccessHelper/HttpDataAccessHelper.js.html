@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">54.29% </span>
+                <span class="strong">54.28% </span>
                 <span class="quiet">Statements</span>
                 <span class='fraction'>57/105</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40.52% </span>
+                <span class="strong">41.96% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>47/116</span>
+                <span class='fraction'>47/112</span>
             </div>
         
             
@@ -44,7 +44,7 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">54.37% </span>
+                <span class="strong">54.36% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>56/103</span>
             </div>
@@ -54,6 +54,12 @@
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
     <div class='status-line medium'></div>
     <pre><table class="coverage">
@@ -621,8 +627,8 @@ function <span class="fstat-no" title="function not covered" >fetchBinary(</span
   });
 }
 &nbsp;
-function fetchArray(instance = <span class="branch-0 cbranch-no" title="branch not covered" >{},</span> baseURL, array, options = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
-  <span class="missing-if-branch" title="else path not taken" >E</span>if (array.ref &amp;&amp; !array.ref.pending) {
+function fetchArray(instance, baseURL, array, options = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
+  if (array.ref &amp;&amp; !array.ref.pending) {
     return new Promise((resolve, reject) =&gt; {
       const url = [
         baseURL,
@@ -634,16 +640,16 @@ function fetchArray(instance = <span class="branch-0 cbranch-no" title="branch n
       xhr.onreadystatechange = (e) =&gt; {
         <span class="missing-if-branch" title="if path not taken" >I</span>if (xhr.readyState === 1) {
 <span class="cstat-no" title="statement not covered" >          array.ref.pending = true;</span>
-<span class="cstat-no" title="statement not covered" >          if (++requestCount === 1 &amp;&amp; instance.invokeBusy) {</span>
+<span class="cstat-no" title="statement not covered" >          if (++requestCount === 1 &amp;&amp; instance?.invokeBusy) {</span>
 <span class="cstat-no" title="statement not covered" >            instance.invokeBusy(true);</span>
           }
         }
         if (xhr.readyState === 4) {
           array.ref.pending = false;
-          <span class="missing-if-branch" title="else path not taken" >E</span>if (xhr.status === 200 || <span class="branch-1 cbranch-no" title="branch not covered" >xhr.status === 0)</span> {
+          if (xhr.status === 200 || <span class="branch-1 cbranch-no" title="branch not covered" >xhr.status === 0)</span> {
             array.buffer = xhr.response;
 &nbsp;
-            <span class="missing-if-branch" title="else path not taken" >E</span>if (options.compression) {
+            if (options.compression) {
               <span class="missing-if-branch" title="if path not taken" >I</span>if (array.dataType === 'string' || array.dataType === 'JSON') {
 <span class="cstat-no" title="statement not covered" >                array.buffer = pako.inflate(new Uint8Array(array.buffer), {</span>
                   to: 'string',
@@ -678,14 +684,14 @@ function fetchArray(instance = <span class="branch-0 cbranch-no" title="branch n
 &nbsp;
             // Done with the ref and work
             delete array.ref;
-            <span class="missing-if-branch" title="if path not taken" >I</span>if (--requestCount === 0 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >instance.invokeBusy)</span> {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (--requestCount === 0 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >instance?.invokeBusy)</span> {
 <span class="cstat-no" title="statement not covered" >              instance.invokeBusy(false);</span>
             }
-            <span class="missing-if-branch" title="else path not taken" >E</span>if (instance.modified) {
+            if (instance?.modified) {
               instance.modified();
             }
             resolve(array);
-          } else {
+          } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >            reject({ xhr, e });</span>
           }
         }
@@ -705,21 +711,21 @@ function fetchArray(instance = <span class="branch-0 cbranch-no" title="branch n
 &nbsp;
 // ----------------------------------------------------------------------------
 &nbsp;
-function fetchJSON(instance = <span class="branch-0 cbranch-no" title="branch not covered" >{},</span> url, options = {}) {
+function fetchJSON(instance, url, options = {}) {
   return new Promise((resolve, reject) =&gt; {
     const xhr = openAsyncXHR('GET', url, options);
 &nbsp;
     xhr.onreadystatechange = (e) =&gt; {
       <span class="missing-if-branch" title="if path not taken" >I</span>if (xhr.readyState === 1) {
-<span class="cstat-no" title="statement not covered" >        if (++requestCount === 1 &amp;&amp; instance.invokeBusy) {</span>
+<span class="cstat-no" title="statement not covered" >        if (++requestCount === 1 &amp;&amp; instance?.invokeBusy) {</span>
 <span class="cstat-no" title="statement not covered" >          instance.invokeBusy(true);</span>
         }
       }
       if (xhr.readyState === 4) {
-        <span class="missing-if-branch" title="if path not taken" >I</span>if (--requestCount === 0 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >instance.invokeBusy)</span> {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (--requestCount === 0 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >instance?.invokeBusy)</span> {
 <span class="cstat-no" title="statement not covered" >          instance.invokeBusy(false);</span>
         }
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (xhr.status === 200 || <span class="branch-1 cbranch-no" title="branch not covered" >xhr.status === 0)</span> {
+        if (xhr.status === 200 || <span class="branch-1 cbranch-no" title="branch not covered" >xhr.status === 0)</span> {
           <span class="missing-if-branch" title="if path not taken" >I</span>if (options.compression) {
 <span class="cstat-no" title="statement not covered" >            resolve(</span>
               JSON.parse(
@@ -729,7 +735,7 @@ function fetchJSON(instance = <span class="branch-0 cbranch-no" title="branch no
           } else {
             resolve(JSON.parse(xhr.responseText));
           }
-        } else {
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >          reject({ xhr, e });</span>
         }
       }
@@ -743,7 +749,7 @@ function fetchJSON(instance = <span class="branch-0 cbranch-no" title="branch no
 &nbsp;
 // ----------------------------------------------------------------------------
 &nbsp;
-function fetchText(instance = <span class="branch-0 cbranch-no" title="branch not covered" >{},</span> url, options = {}) {
+function fetchText(instance, url, options = {}) {
   <span class="missing-if-branch" title="if path not taken" >I</span>if (options &amp;&amp; options.compression &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >options.compression !== 'gz')</span> {
 <span class="cstat-no" title="statement not covered" >    vtkErrorMacro('Supported algorithms are: [gz]');</span>
 <span class="cstat-no" title="statement not covered" >    vtkErrorMacro(`Unkown compression algorithm: ${options.compression}`);</span>
@@ -754,15 +760,15 @@ function fetchText(instance = <span class="branch-0 cbranch-no" title="branch no
 &nbsp;
     xhr.onreadystatechange = (e) =&gt; {
       <span class="missing-if-branch" title="if path not taken" >I</span>if (xhr.readyState === 1) {
-<span class="cstat-no" title="statement not covered" >        if (++requestCount === 1 &amp;&amp; instance.invokeBusy) {</span>
+<span class="cstat-no" title="statement not covered" >        if (++requestCount === 1 &amp;&amp; instance?.invokeBusy) {</span>
 <span class="cstat-no" title="statement not covered" >          instance.invokeBusy(true);</span>
         }
       }
       if (xhr.readyState === 4) {
-        <span class="missing-if-branch" title="if path not taken" >I</span>if (--requestCount === 0 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >instance.invokeBusy)</span> {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (--requestCount === 0 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >instance?.invokeBusy)</span> {
 <span class="cstat-no" title="statement not covered" >          instance.invokeBusy(false);</span>
         }
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (xhr.status === 200 || <span class="branch-1 cbranch-no" title="branch not covered" >xhr.status === 0)</span> {
+        if (xhr.status === 200 || <span class="branch-1 cbranch-no" title="branch not covered" >xhr.status === 0)</span> {
           <span class="missing-if-branch" title="if path not taken" >I</span>if (options.compression) {
 <span class="cstat-no" title="statement not covered" >            resolve(</span>
               pako.inflate(new Uint8Array(xhr.response), { to: 'string' })
@@ -770,7 +776,7 @@ function fetchText(instance = <span class="branch-0 cbranch-no" title="branch no
           } else {
             resolve(xhr.responseText);
           }
-        } else {
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >          reject({ xhr, e });</span>
         }
       }
@@ -784,7 +790,7 @@ function fetchText(instance = <span class="branch-0 cbranch-no" title="branch no
 &nbsp;
 // ----------------------------------------------------------------------------
 &nbsp;
-function <span class="fstat-no" title="function not covered" >fetchImage(</span>instance = <span class="branch-0 cbranch-no" title="branch not covered" >{},</span> url, options = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
+function <span class="fstat-no" title="function not covered" >fetchImage(</span>instance, url, options = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
 <span class="cstat-no" title="statement not covered" >  return new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt; {</span>
     const img = <span class="cstat-no" title="statement not covered" >new Image();</span>
 <span class="cstat-no" title="statement not covered" >    if (options.crossOrigin) {</span>
@@ -816,10 +822,9 @@ export default HttpDataAccessHelper;
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jan 07 2022 19:48:17 GMT+0000 (Coordinated Universal Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at Tue Jan 11 2022 15:38:44 GMT+0000 (Coordinated Universal Time)
             </div>
-        </div>
         <script src="../../../../prettify.js"></script>
         <script>
             window.onload = function () {

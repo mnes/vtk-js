@@ -23,21 +23,21 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">59.81% </span>
+                <span class="strong">59.8% </span>
                 <span class="quiet">Statements</span>
                 <span class='fraction'>186/311</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">54.46% </span>
+                <span class="strong">54.45% </span>
                 <span class="quiet">Branches</span>
                 <span class='fraction'>55/101</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">84.62% </span>
+                <span class="strong">84.61% </span>
                 <span class="quiet">Functions</span>
                 <span class='fraction'>11/13</span>
             </div>
@@ -54,6 +54,12 @@
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
     <div class='status-line medium'></div>
     <pre><table class="coverage">
@@ -1508,7 +1514,7 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
 &nbsp;
   publicAPI.renderPiece = (ren, actor) =&gt; {
     publicAPI.invokeEvent(StartEvent);
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!model.renderable.getStatic()) {
+    if (!model.renderable.getStatic()) {
       model.renderable.update();
     }
     model.currentInput = model.renderable.getInputData(1);
@@ -1529,10 +1535,10 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
 &nbsp;
     // apply faceCulling
     const gl = model.context;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.openGLRenderWindow.getWebgl2()) {
+    if (model.openGLRenderWindow.getWebgl2()) {
       model.hardwareSupport = true;
       model.extension = null;
-    } else <span class="cstat-no" title="statement not covered" >if (!model.extension) {</span>
+    } else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="else path not taken" >E</span>if (!model.extension) {</span>
 <span class="cstat-no" title="statement not covered" >      model.extension = model.context.getExtension('ANGLE_instanced_arrays');</span>
 <span class="cstat-no" title="statement not covered" >      model.hardwareSupport = !!model.extension;</span>
     }
@@ -1542,9 +1548,9 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
 &nbsp;
     const backfaceCulling = actor.getProperty().getBackfaceCulling();
     const frontfaceCulling = actor.getProperty().getFrontfaceCulling();
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!backfaceCulling &amp;&amp; !frontfaceCulling) {
+    if (!backfaceCulling &amp;&amp; !frontfaceCulling) {
       model.openGLRenderWindow.disableCullFace();
-    } else <span class="cstat-no" title="statement not covered" >if (frontfaceCulling) {</span>
+    } else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="else path not taken" >E</span>if (frontfaceCulling) {</span>
 <span class="cstat-no" title="statement not covered" >      model.openGLRenderWindow.enableCullFace();</span>
 <span class="cstat-no" title="statement not covered" >      gl.cullFace(gl.FRONT);</span>
     } else {
@@ -1614,12 +1620,12 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
   };
 &nbsp;
   publicAPI.replaceShaderNormal = (shaders, ren, actor) =&gt; {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.hardwareSupport) {
+    if (model.hardwareSupport) {
       const lastLightComplexity = model.lastBoundBO.getReferenceByName(
         'lastLightComplexity'
       );
 &nbsp;
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (lastLightComplexity &gt; 0) {
+      if (lastLightComplexity &gt; 0) {
         let VSSource = shaders.Vertex;
 &nbsp;
         if (model.lastBoundBO.getCABO().getNormalOffset()) {
@@ -1646,7 +1652,7 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
   };
 &nbsp;
   publicAPI.replaceShaderColor = (shaders, ren, actor) =&gt; {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.hardwareSupport &amp;&amp; model.renderable.getColorArray()) {
+    if (model.hardwareSupport &amp;&amp; model.renderable.getColorArray()) {
       let VSSource = shaders.Vertex;
       let GSSource = shaders.Geometry;
       let FSSource = shaders.Fragment;
@@ -1664,7 +1670,7 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
         'uniform float opacityUniform; // the fragment opacity',
       ];
       // add more for specular
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (lastLightComplexity) {
+      if (lastLightComplexity) {
         colorDec = colorDec.concat([
           'uniform vec3 specularColorUniform;',
           'uniform float specularPowerUniform;',
@@ -1679,21 +1685,21 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
         '  vec3 diffuseColor;',
         '  float opacity;',
       ];
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (lastLightComplexity) {
+      if (lastLightComplexity) {
         colorImpl = colorImpl.concat([
           '  vec3 specularColor;',
           '  float specularPower;',
         ]);
       }
       colorImpl = colorImpl.concat(['  opacity = opacityUniform;']);
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (lastLightComplexity) {
+      if (lastLightComplexity) {
         colorImpl = colorImpl.concat([
           '  specularColor = specularColorUniform;',
           '  specularPower = specularPowerUniform;',
         ]);
       }
 &nbsp;
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (!model.drawingEdges) {
+      if (!model.drawingEdges) {
         colorDec = colorDec.concat(['varying vec4 vertexColorVSOutput;']);
         VSSource = vtkShaderProgram.substitute(VSSource, '//VTK::Color::Dec', [
           'attribute vec4 gColor;',
@@ -1737,14 +1743,14 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
   };
 &nbsp;
   publicAPI.replaceShaderPositionVC = (shaders, ren, actor) =&gt; {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.hardwareSupport) {
+    if (model.hardwareSupport) {
       let VSSource = shaders.Vertex;
 &nbsp;
       // do we need the vertex in the shader in View Coordinates
       const lastLightComplexity = model.lastBoundBO.getReferenceByName(
         'lastLightComplexity'
       );
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (lastLightComplexity &gt; 0) {
+      if (lastLightComplexity &gt; 0) {
         VSSource = vtkShaderProgram.substitute(
           VSSource,
           '//VTK::PositionVC::Impl',
@@ -1759,7 +1765,7 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
           'uniform mat4 MCPCMatrix;',
           'uniform mat4 MCVCMatrix;',
         ]).result;
-      } else {
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >        VSSource = vtkShaderProgram.substitute(VSSource, '//VTK::Camera::Dec', [</span>
           'attribute mat4 gMatrix;',
           'uniform mat4 MCPCMatrix;',
@@ -1779,7 +1785,7 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
   };
 &nbsp;
   publicAPI.replaceShaderPicking = (shaders, ren, actor) =&gt; {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.hardwareSupport) {
+    if (model.hardwareSupport) {
       let FSSource = shaders.Fragment;
       let VSSource = shaders.Vertex;
       VSSource = vtkShaderProgram.substitute(VSSource, '//VTK::Picking::Dec', [
@@ -1802,7 +1808,7 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
         '  gl_FragData[0] = picking != 0 ? pickColor : gl_FragData[0];',
       ]).result;
       shaders.Fragment = FSSource;
-    } else {
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >      superClass.replaceShaderPicking(shaders, ren, actor);</span>
     }
   };
@@ -1946,7 +1952,7 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
         const normalMatrixUsed = program.isUniformUsed('normalMatrix');
         const mcvcMatrixUsed = program.isUniformUsed('MCVCMatrix');
 &nbsp;
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (model.hardwareSupport) {
+        if (model.hardwareSupport) {
           <span class="missing-if-branch" title="if path not taken" >I</span>if (model.extension) {
 <span class="cstat-no" title="statement not covered" >            model.extension.drawArraysInstancedANGLE(</span>
               mode,
@@ -1957,7 +1963,7 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
           } else {
             gl.drawArraysInstanced(mode, 0, cabo.getElementCount(), numPts);
           }
-        } else {
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>{
           // draw the array multiple times with different cam matrix
 <span class="cstat-no" title="statement not covered" >          for (let p = <span class="cstat-no" title="statement not covered" >0;</span> p &lt; numPts; ++p) {</span>
 <span class="cstat-no" title="statement not covered" >            if (compositePass) {</span>
@@ -1988,7 +1994,7 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
         cellBO.getShaderSourceTime().getMTime() &gt;
           cellBO.getAttributeUpdateTime().getMTime())
     ) {
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (cellBO.getProgram().isAttributeUsed('gMatrix')) {
+      if (cellBO.getProgram().isAttributeUsed('gMatrix')) {
         <span class="missing-if-branch" title="if path not taken" >I</span>if (
           !cellBO
             .getVAO()
@@ -2006,7 +2012,7 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
         ) {
 <span class="cstat-no" title="statement not covered" >          vtkErrorMacro('Error setting gMatrix in shader VAO.');</span>
         }
-      } else {
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >        cellBO.getVAO().removeAttributeArray('gMatrix');</span>
       }
       if (cellBO.getProgram().isAttributeUsed('gNormal')) {
@@ -2030,7 +2036,7 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
       } else {
         cellBO.getVAO().removeAttributeArray('gNormal');
       }
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (cellBO.getProgram().isAttributeUsed('gColor')) {
+      if (cellBO.getProgram().isAttributeUsed('gColor')) {
         <span class="missing-if-branch" title="if path not taken" >I</span>if (
           !cellBO
             .getVAO()
@@ -2049,10 +2055,10 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
         ) {
 <span class="cstat-no" title="statement not covered" >          vtkErrorMacro('Error setting gColor in shader VAO.');</span>
         }
-      } else {
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >        cellBO.getVAO().removeAttributeArray('gColor');</span>
       }
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (cellBO.getProgram().isAttributeUsed('mapperIndexVS')) {
+      if (cellBO.getProgram().isAttributeUsed('mapperIndexVS')) {
         <span class="missing-if-branch" title="if path not taken" >I</span>if (
           !cellBO
             .getVAO()
@@ -2071,7 +2077,7 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
         ) {
 <span class="cstat-no" title="statement not covered" >          vtkErrorMacro('Error setting mapperIndexVS in shader VAO.');</span>
         }
-      } else {
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >        cellBO.getVAO().removeAttributeArray('mapperIndexVS');</span>
       }
       superClass.setMapperShaderParameters(cellBO, ren, actor);
@@ -2095,7 +2101,7 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
   };
 &nbsp;
   publicAPI.buildBufferObjects = (ren, actor) =&gt; {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.hardwareSupport) {
+    if (model.hardwareSupport) {
       // update the buffer objects if needed
       const garray = model.renderable.getMatrixArray();
       const narray = model.renderable.getNormalArray();
@@ -2116,9 +2122,9 @@ function vtkOpenGLGlyph3DMapper(publicAPI, model) {
       ) {
         model.matrixBuffer.upload(garray, ObjectType.ARRAY_BUFFER);
         model.normalBuffer.upload(narray, ObjectType.ARRAY_BUFFER);
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (carray) {
+        if (carray) {
           model.colorBuffer.upload(carray.getData(), ObjectType.ARRAY_BUFFER);
-        } else {
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >          model.colorBuffer.releaseGraphicsResources();</span>
         }
         const numPts = garray.length / 16;
@@ -2190,10 +2196,9 @@ registerOverride('vtkGlyph3DMapper', newInstance);
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jan 07 2022 19:48:17 GMT+0000 (Coordinated Universal Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at Tue Jan 11 2022 15:38:44 GMT+0000 (Coordinated Universal Time)
             </div>
-        </div>
         <script src="../../../../prettify.js"></script>
         <script>
             window.onload = function () {

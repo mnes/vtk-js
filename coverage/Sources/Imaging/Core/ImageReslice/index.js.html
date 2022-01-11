@@ -23,7 +23,7 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.65% </span>
+                <span class="strong">72.64% </span>
                 <span class="quiet">Statements</span>
                 <span class='fraction'>409/563</span>
             </div>
@@ -37,7 +37,7 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.58% </span>
+                <span class="strong">57.57% </span>
                 <span class="quiet">Functions</span>
                 <span class='fraction'>19/33</span>
             </div>
@@ -54,6 +54,12 @@
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
     <div class='status-line medium'></div>
     <pre><table class="coverage">
@@ -2044,10 +2050,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">37x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -2059,6 +2061,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -2494,9 +2500,9 @@ function vtkImageReslice(publicAPI, model) {
     const outDims = [0, 0, 0];
 &nbsp;
     let matrix = null;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.resliceAxes) {
+    if (model.resliceAxes) {
       matrix = model.resliceAxes;
-    } else {
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >      matrix = mat4.identity(new Float64Array(16));</span>
     }
     const imatrix = new Float64Array(16);
@@ -2509,7 +2515,7 @@ function vtkImageReslice(publicAPI, model) {
     ];
 &nbsp;
     let maxBounds = null;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.autoCropOutput) {
+    if (model.autoCropOutput) {
       maxBounds = publicAPI.getAutoCroppedOutputBounds(input);
     }
 &nbsp;
@@ -2552,7 +2558,7 @@ function vtkImageReslice(publicAPI, model) {
         outWholeExt[2 * i] = 0;
         outWholeExt[2 * i + 1] = 0;
       } else if (model.outputExtent == null) {
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (model.autoCropOutput) {
+        if (model.autoCropOutput) {
           d = maxBounds[2 * i + 1] - maxBounds[2 * i];
         }
         outWholeExt[2 * i] = Math.round(e);
@@ -2567,10 +2573,10 @@ function vtkImageReslice(publicAPI, model) {
       if (i &gt;= model.outputDimensionality) {
         outOrigin[i] = 0;
       } else if (model.outputOrigin == null) {
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (model.autoCropOutput) {
+        if (model.autoCropOutput) {
           // set origin so edge of extent is edge of bounds
           outOrigin[i] = maxBounds[2 * i] - outWholeExt[2 * i] * outSpacing[i];
-        } else {
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>{
           // center new bounds over center of input bounds
 <span class="cstat-no" title="statement not covered" >          outOrigin[i] =</span>
             c -
@@ -2689,7 +2695,7 @@ function vtkImageReslice(publicAPI, model) {
     }
 &nbsp;
     let interpolationMode = InterpolationMode.NEAREST;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.interpolator.isA('vtkImageInterpolator')) {
+    if (model.interpolator.isA('vtkImageInterpolator')) {
       interpolationMode = model.interpolator.getInterpolationMode();
     }
 &nbsp;
@@ -2821,7 +2827,7 @@ function vtkImageReslice(publicAPI, model) {
         }
 &nbsp;
         // if Y index increased, then advance position along Y axis
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (outIndex[1] &gt; idY) {
+        if (outIndex[1] &gt; idY) {
           idY = outIndex[1];
           inPoint1[0] = inPoint0[0] + idY * yAxis[0];
           inPoint1[1] = inPoint0[1] + idY * yAxis[1];
@@ -2920,7 +2926,7 @@ function vtkImageReslice(publicAPI, model) {
 <span class="cstat-no" title="statement not covered" >                outputStencil.insertNextExtent(startIdX, endIdX, idY, idZ);</span>
               }
 &nbsp;
-              <span class="missing-if-branch" title="else path not taken" >E</span>if (rescaleScalars) {
+              if (rescaleScalars) {
                 publicAPI.rescaleScalars(
                   floatPtr,
                   inComponents,
@@ -3088,7 +3094,7 @@ function vtkImageReslice(publicAPI, model) {
 <span class="cstat-no" title="statement not covered" >      optimizedTransform = null;</span>
     }
 &nbsp;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.resliceAxes) {
+    if (model.resliceAxes) {
       mat4.copy(transform, model.resliceAxes);
     }
     <span class="missing-if-branch" title="if path not taken" >I</span>if (model.resliceTransform) {
@@ -3115,14 +3121,14 @@ function vtkImageReslice(publicAPI, model) {
       outMatrix[4 * 3 + i] = outOrigin[i];
     }
 &nbsp;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!isIdentity) {
+    if (!isIdentity) {
       // transform.PreMultiply();
       // transform.Concatenate(outMatrix);
       mat4.multiply(transform, transform, outMatrix);
 &nbsp;
       // the optimizedTransform requires data coords, not
       // index coords, as its input
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (optimizedTransform == null) {
+      if (optimizedTransform == null) {
         // transform-&gt;PostMultiply();
         // transform-&gt;Concatenate(inMatrix);
         mat4.multiply(transform, inMatrix, transform);
@@ -3141,9 +3147,9 @@ function vtkImageReslice(publicAPI, model) {
     const inWholeExt = [0, dims[0] - 1, 0, dims[1] - 1, 0, dims[2] - 1];
 &nbsp;
     const matrix = new Float64Array(16);
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (model.resliceAxes) {
+    if (model.resliceAxes) {
       mat4.invert(matrix, model.resliceAxes);
-    } else {
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >      mat4.identity(matrix);</span>
     }
 &nbsp;
@@ -3192,22 +3198,22 @@ function vtkImageReslice(publicAPI, model) {
     switch (dataType) {
 <span class="branch-0 cbranch-no" title="branch not covered" >      case 'Int8Array':</span>
 <span class="cstat-no" title="statement not covered" >        return { min: -128, max: 127 };</span>
+<span class="branch-1 cbranch-no" title="branch not covered" >      case 'Int16Array':</span>
+<span class="cstat-no" title="statement not covered" >        return { min: -32768, max: 32767 };</span>
+      case 'Uint16Array':
+        return { min: 0, max: 65535 };
+<span class="branch-3 cbranch-no" title="branch not covered" >      case 'Int32Array':</span>
+<span class="cstat-no" title="statement not covered" >        return { min: -2147483648, max: 2147483647 };</span>
+<span class="branch-4 cbranch-no" title="branch not covered" >      case 'Uint32Array':</span>
+<span class="cstat-no" title="statement not covered" >        return { min: 0, max: 4294967295 };</span>
+<span class="branch-5 cbranch-no" title="branch not covered" >      case 'Float32Array':</span>
+<span class="cstat-no" title="statement not covered" >        return { min: -1.2e38, max: 1.2e38 };</span>
+<span class="branch-6 cbranch-no" title="branch not covered" >      case 'Float64Array':</span>
+<span class="cstat-no" title="statement not covered" >        return { min: -1.2e38, max: 1.2e38 };</span>
       case 'Uint8Array':
       case 'Uint8ClampedArray':
       default:
         return { min: 0, max: 255 };
-<span class="branch-4 cbranch-no" title="branch not covered" >      case 'Int16Array':</span>
-<span class="cstat-no" title="statement not covered" >        return { min: -32768, max: 32767 };</span>
-      case 'Uint16Array':
-        return { min: 0, max: 65535 };
-<span class="branch-6 cbranch-no" title="branch not covered" >      case 'Int32Array':</span>
-<span class="cstat-no" title="statement not covered" >        return { min: -2147483648, max: 2147483647 };</span>
-<span class="branch-7 cbranch-no" title="branch not covered" >      case 'Uint32Array':</span>
-<span class="cstat-no" title="statement not covered" >        return { min: 0, max: 4294967295 };</span>
-<span class="branch-8 cbranch-no" title="branch not covered" >      case 'Float32Array':</span>
-<span class="cstat-no" title="statement not covered" >        return { min: -1.2e38, max: 1.2e38 };</span>
-<span class="branch-9 cbranch-no" title="branch not covered" >      case 'Float64Array':</span>
-<span class="cstat-no" title="statement not covered" >        return { min: -1.2e38, max: 1.2e38 };</span>
     }
   };
 &nbsp;
@@ -3235,7 +3241,7 @@ function vtkImageReslice(publicAPI, model) {
     forceClamping
   ) =&gt; {
     let useClamping = forceClamping;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (
+    if (
       dataType !== VtkDataTypes.FLOAT &amp;&amp;
       dataType !== VtkDataTypes.DOUBLE &amp;&amp;
       !forceClamping
@@ -3411,7 +3417,7 @@ function setNullArray(publicAPI, model, fieldNames) {
     const superSet = publicAPI[setterName];
     publicAPI[setterName] = (...args) =&gt; {
       if ((args.length === 1 &amp;&amp; args[0] == null) || model[field] == null) {
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (args[0] !== model[field]) {
+        if (args[0] !== model[field]) {
           model[field] = args[0];
           publicAPI.modified();
           return true;
@@ -3510,10 +3516,9 @@ export default { newInstance, extend, ...Constants };
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jan 07 2022 19:48:17 GMT+0000 (Coordinated Universal Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at Tue Jan 11 2022 15:38:44 GMT+0000 (Coordinated Universal Time)
             </div>
-        </div>
         <script src="../../../../prettify.js"></script>
         <script>
             window.onload = function () {

@@ -37,7 +37,7 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">51.22% </span>
+                <span class="strong">51.21% </span>
                 <span class="quiet">Functions</span>
                 <span class='fraction'>21/41</span>
             </div>
@@ -54,6 +54,12 @@
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
     <div class='status-line medium'></div>
     <pre><table class="coverage">
@@ -2780,7 +2786,7 @@ function vtkColorTransferFunction(publicAPI, model) {
     }
 &nbsp;
     // remove any node already at this X location
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!model.allowDuplicateScalars) {
+    if (!model.allowDuplicateScalars) {
       publicAPI.removePoint(x);
     }
 &nbsp;
@@ -2802,7 +2808,7 @@ function vtkColorTransferFunction(publicAPI, model) {
 &nbsp;
     // If we didn't find it, something went horribly wrong so
     // return -1
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (i &lt; model.nodes.length) {
+    if (i &lt; model.nodes.length) {
       return i;
     }
 &nbsp;
@@ -2867,10 +2873,10 @@ function vtkColorTransferFunction(publicAPI, model) {
     oldRange[1] = model.mappingRange[1];
 &nbsp;
     const size = model.nodes.length;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (size) {
+    if (size) {
       model.mappingRange[0] = model.nodes[0].x;
       model.mappingRange[1] = model.nodes[size - 1].x;
-    } else {
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >      model.mappingRange[0] = 0;</span>
 <span class="cstat-no" title="statement not covered" >      model.mappingRange[1] = 0;</span>
     }
@@ -2902,7 +2908,7 @@ function vtkColorTransferFunction(publicAPI, model) {
     const retVal = i;
 &nbsp;
     // If the node doesn't exist, we return -1
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (i &gt;= model.nodes.length) {
+    if (i &gt;= model.nodes.length) {
       return -1;
     }
 &nbsp;
@@ -3068,7 +3074,7 @@ function vtkColorTransferFunction(publicAPI, model) {
     let lastR = 0.0;
     let lastG = 0.0;
     let lastB = 0.0;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (numNodes !== 0) {
+    if (numNodes !== 0) {
       lastR = model.nodes[numNodes - 1].r;
       lastG = model.nodes[numNodes - 1].g;
       lastB = model.nodes[numNodes - 1].b;
@@ -3189,7 +3195,7 @@ function vtkColorTransferFunction(publicAPI, model) {
         table[tidx] = 0.0;
         table[tidx + 1] = 0.0;
         table[tidx + 2] = 0.0;
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (model.clamping) {
+        if (model.clamping) {
           if (publicAPI.getUseAboveRangeColor()) {
             table[tidx] = model.aboveRangeColor[0];
             table[tidx + 1] = model.aboveRangeColor[1];
@@ -3206,12 +3212,12 @@ function vtkColorTransferFunction(publicAPI, model) {
         table[tidx] = 0.0;
         table[tidx + 1] = 0.0;
         table[tidx + 2] = 0.0;
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (model.clamping) {
+        if (model.clamping) {
           if (publicAPI.getUseBelowRangeColor()) {
             table[tidx] = model.belowRangeColor[0];
             table[tidx + 1] = model.belowRangeColor[1];
             table[tidx + 2] = model.belowRangeColor[2];
-          } else <span class="missing-if-branch" title="else path not taken" >E</span>if (numNodes &gt; 0) {
+          } else if (numNodes &gt; 0) {
             table[tidx] = model.nodes[0].r;
             table[tidx + 1] = model.nodes[0].g;
             table[tidx + 2] = model.nodes[0].b;
@@ -3221,11 +3227,11 @@ function vtkColorTransferFunction(publicAPI, model) {
         idx === 0 &amp;&amp;
         (Math.abs(x - xStart) &lt; 1e-6 || model.discretize)
       ) {
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (numNodes &gt; 0) {
+        if (numNodes &gt; 0) {
           table[tidx] = model.nodes[0].r;
           table[tidx + 1] = model.nodes[0].g;
           table[tidx + 2] = model.nodes[0].b;
-        } else {
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >          table[tidx] = 0.0;</span>
 <span class="cstat-no" title="statement not covered" >          table[tidx + 1] = 0.0;</span>
 <span class="cstat-no" title="statement not covered" >          table[tidx + 2] = 0.0;</span>
@@ -3270,7 +3276,7 @@ function vtkColorTransferFunction(publicAPI, model) {
 &nbsp;
         // Override for sharpness &lt; 0.01
         // In this case we want piecewise linear
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (sharpness &lt; 0.01) {
+        if (sharpness &lt; 0.01) {
           // Simple linear interpolation
           if (model.colorSpace === ColorSpace.RGB) {
             table[tidx] = (1 - s) * rgb1[0] + s * rgb2[0];
@@ -3322,12 +3328,12 @@ function vtkColorTransferFunction(publicAPI, model) {
             table[tidx] = tmpVec[0];
             table[tidx + 1] = tmpVec[1];
             table[tidx + 2] = tmpVec[2];
-          } else <span class="missing-if-branch" title="else path not taken" >E</span>if (model.colorSpace === ColorSpace.DIVERGING) {
+          } else if (model.colorSpace === ColorSpace.DIVERGING) {
             vtkColorTransferFunctionInterpolateDiverging(s, rgb1, rgb2, tmpVec);
             table[tidx] = tmpVec[0];
             table[tidx + 1] = tmpVec[1];
             table[tidx + 2] = tmpVec[2];
-          } else {
+          } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >            vtkErrorMacro('ColorSpace set to invalid value.', model.colorSpace);</span>
           }
           continue;
@@ -3725,7 +3731,7 @@ function vtkColorTransferFunction(publicAPI, model) {
     const inputV = input.getData();
     const rgb = [];
 &nbsp;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (outFormat === ScalarMappingTarget.RGBA) {
+    if (outFormat === ScalarMappingTarget.RGBA) {
       for (let i = 0; i &lt; length; i++) {
         const x = inputV[i * inIncr + inputOffset];
         publicAPI.getColor(x, rgb);
@@ -3770,7 +3776,7 @@ function vtkColorTransferFunction(publicAPI, model) {
 &nbsp;
   //----------------------------------------------------------------------------
   publicAPI.applyColorMap = (colorMap) =&gt; {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (colorMap.ColorSpace) {
+    if (colorMap.ColorSpace) {
       model.colorSpace = ColorSpace[colorMap.ColorSpace.toUpperCase()];
       if (model.colorSpace === undefined) {
         vtkErrorMacro(
@@ -3785,7 +3791,7 @@ function vtkColorTransferFunction(publicAPI, model) {
         model.nanColor.push(1.0);
       }
     }
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (colorMap.RGBPoints) {
+    if (colorMap.RGBPoints) {
       const size = colorMap.RGBPoints.length;
       model.nodes = [];
       const midpoint = 0.5;
@@ -3906,10 +3912,9 @@ export default { newInstance, extend, ...Constants };
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jan 07 2022 19:48:17 GMT+0000 (Coordinated Universal Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at Tue Jan 11 2022 15:38:44 GMT+0000 (Coordinated Universal Time)
             </div>
-        </div>
         <script src="../../../../prettify.js"></script>
         <script>
             window.onload = function () {
