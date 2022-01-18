@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">22.05% </span>
+                <span class="strong">21.42% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>45/204</span>
+                <span class='fraction'>45/210</span>
             </div>
         
             
@@ -1152,7 +1152,14 @@
 <a name='L1087'></a><a href='#L1087'>1087</a>
 <a name='L1088'></a><a href='#L1088'>1088</a>
 <a name='L1089'></a><a href='#L1089'>1089</a>
-<a name='L1090'></a><a href='#L1090'>1090</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L1090'></a><a href='#L1090'>1090</a>
+<a name='L1091'></a><a href='#L1091'>1091</a>
+<a name='L1092'></a><a href='#L1092'>1092</a>
+<a name='L1093'></a><a href='#L1093'>1093</a>
+<a name='L1094'></a><a href='#L1094'>1094</a>
+<a name='L1095'></a><a href='#L1095'>1095</a>
+<a name='L1096'></a><a href='#L1096'>1096</a>
+<a name='L1097'></a><a href='#L1097'>1097</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1574,12 +1581,15 @@
 <span class="cline-any cline-yes">115x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1589,19 +1599,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1609,7 +1606,24 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -2663,7 +2677,10 @@ function vtkRenderWindowInteractor(publicAPI, model) {
   publicAPI.updateXRGamepads = <span class="fstat-no" title="function not covered" >(x</span>rSession, xrFrame, xrRefSpace) =&gt; {
     // watch for when buttons change state and fire events
 <span class="cstat-no" title="statement not covered" >    xrSession.inputSources.forEach(<span class="fstat-no" title="function not covered" >(i</span>nputSource) =&gt; {</span>
-      const pose = <span class="cstat-no" title="statement not covered" >xrFrame.getPose(inputSource.gripSpace, xrRefSpace);</span>
+      const gripPose =
+<span class="cstat-no" title="statement not covered" >        inputSource.gripSpace == null</span>
+          ? null
+          : xrFrame.getPose(inputSource.gripSpace, xrRefSpace);
       const gp = <span class="cstat-no" title="statement not covered" >inputSource.gamepad;</span>
       const hand = <span class="cstat-no" title="statement not covered" >inputSource.handedness;</span>
 <span class="cstat-no" title="statement not covered" >      if (gp) {</span>
@@ -2679,12 +2696,13 @@ function vtkRenderWindowInteractor(publicAPI, model) {
           }
 <span class="cstat-no" title="statement not covered" >          if (</span>
             model.lastGamepadValues[gp.index][hand].buttons[b] !==
-            gp.buttons[b].pressed
+              gp.buttons[b].pressed &amp;&amp;
+            gripPose != null
           ) {
 <span class="cstat-no" title="statement not covered" >            publicAPI.button3DEvent({</span>
               gamepad: gp,
-              position: pose.transform.position,
-              orientation: pose.transform.orientation,
+              position: gripPose.transform.position,
+              orientation: gripPose.transform.orientation,
               pressed: gp.buttons[b].pressed,
               device:
                 inputSource.handedness === 'left'
@@ -2698,11 +2716,14 @@ function vtkRenderWindowInteractor(publicAPI, model) {
 <span class="cstat-no" title="statement not covered" >            model.lastGamepadValues[gp.index][hand].buttons[b] =</span>
               gp.buttons[b].pressed;
           }
-<span class="cstat-no" title="statement not covered" >          if (model.lastGamepadValues[gp.index][hand].buttons[b]) {</span>
+<span class="cstat-no" title="statement not covered" >          if (</span>
+            model.lastGamepadValues[gp.index][hand].buttons[b] &amp;&amp;
+            gripPose != null
+          ) {
 <span class="cstat-no" title="statement not covered" >            publicAPI.move3DEvent({</span>
               gamepad: gp,
-              position: pose.transform.position,
-              orientation: pose.transform.orientation,
+              position: gripPose.transform.position,
+              orientation: gripPose.transform.orientation,
               device:
                 inputSource.handedness === 'left'
                   ? Device.LeftController
@@ -3337,7 +3358,7 @@ export default { newInstance, extend, handledEvents, ...Constants };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Jan 12 2022 23:34:34 GMT+0000 (Coordinated Universal Time)
+                at Tue Jan 18 2022 16:16:02 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
