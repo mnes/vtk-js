@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.62% </span>
+                <span class="strong">41.12% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>124/321</span>
+                <span class='fraction'>132/321</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">19.33% </span>
+                <span class="strong">19.88% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>35/181</span>
+                <span class='fraction'>36/181</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.78% </span>
+                <span class="strong">30.3% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>19/66</span>
+                <span class='fraction'>20/66</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">37.17% </span>
+                <span class="strong">39.8% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>113/304</span>
+                <span class='fraction'>121/304</span>
             </div>
         
             
@@ -873,8 +873,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-yes">82x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -882,12 +882,12 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-yes">82x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1059,21 +1059,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">39x</span>
-<span class="cline-any cline-yes">39x</span>
-<span class="cline-any cline-yes">39x</span>
-<span class="cline-any cline-yes">172x</span>
-<span class="cline-any cline-yes">172x</span>
-<span class="cline-any cline-yes">172x</span>
-<span class="cline-any cline-yes">172x</span>
-<span class="cline-any cline-yes">172x</span>
-<span class="cline-any cline-yes">172x</span>
-<span class="cline-any cline-yes">172x</span>
-<span class="cline-any cline-yes">172x</span>
-<span class="cline-any cline-yes">172x</span>
-<span class="cline-any cline-yes">172x</span>
+<span class="cline-any cline-yes">40x</span>
+<span class="cline-any cline-yes">40x</span>
+<span class="cline-any cline-yes">40x</span>
+<span class="cline-any cline-yes">176x</span>
+<span class="cline-any cline-yes">176x</span>
+<span class="cline-any cline-yes">176x</span>
+<span class="cline-any cline-yes">176x</span>
+<span class="cline-any cline-yes">176x</span>
+<span class="cline-any cline-yes">176x</span>
+<span class="cline-any cline-yes">176x</span>
+<span class="cline-any cline-yes">176x</span>
+<span class="cline-any cline-yes">176x</span>
+<span class="cline-any cline-yes">176x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-yes">40x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1624,9 +1624,9 @@ export function <span class="fstat-no" title="function not covered" >addPoint(</
 <span class="cstat-no" title="statement not covered" >  bounds[5] = zMax &gt; xyz[2] ? zMax : xyz[2];</span>
 }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >addBounds(</span>bounds, xMin, xMax, yMin, yMax, zMin, zMax) {
-  const [_xMin, _xMax, _yMin, _yMax, _zMin, _zMax] = <span class="cstat-no" title="statement not covered" >bounds;</span>
-<span class="cstat-no" title="statement not covered" >  if (zMax === undefined) {</span>
+export function addBounds(bounds, xMin, xMax, yMin, yMax, zMin, zMax) {
+  const [_xMin, _xMax, _yMin, _yMax, _zMin, _zMax] = bounds;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (zMax === undefined) {
 <span class="cstat-no" title="statement not covered" >    bounds[0] = Math.min(xMin[0], _xMin);</span>
 <span class="cstat-no" title="statement not covered" >    bounds[1] = Math.max(xMin[1], _xMax);</span>
 <span class="cstat-no" title="statement not covered" >    bounds[2] = Math.min(xMin[2], _yMin);</span>
@@ -1634,12 +1634,12 @@ export function <span class="fstat-no" title="function not covered" >addBounds(<
 <span class="cstat-no" title="statement not covered" >    bounds[4] = Math.min(xMin[4], _zMin);</span>
 <span class="cstat-no" title="statement not covered" >    bounds[5] = Math.max(xMin[5], _zMax);</span>
   } else {
-<span class="cstat-no" title="statement not covered" >    bounds[0] = Math.min(xMin, _xMin);</span>
-<span class="cstat-no" title="statement not covered" >    bounds[1] = Math.max(xMax, _xMax);</span>
-<span class="cstat-no" title="statement not covered" >    bounds[2] = Math.min(yMin, _yMin);</span>
-<span class="cstat-no" title="statement not covered" >    bounds[3] = Math.max(yMax, _yMax);</span>
-<span class="cstat-no" title="statement not covered" >    bounds[4] = Math.min(zMin, _zMin);</span>
-<span class="cstat-no" title="statement not covered" >    bounds[5] = Math.max(zMax, _zMax);</span>
+    bounds[0] = Math.min(xMin, _xMin);
+    bounds[1] = Math.max(xMax, _xMax);
+    bounds[2] = Math.min(yMin, _yMin);
+    bounds[3] = Math.max(yMax, _yMax);
+    bounds[4] = Math.min(zMin, _zMin);
+    bounds[5] = Math.max(zMax, _zMax);
   }
 }
 &nbsp;
@@ -2326,7 +2326,7 @@ export default { newInstance, ...STATIC };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Jan 21 2022 09:24:26 GMT+0000 (Coordinated Universal Time)
+                at Fri Jan 21 2022 15:50:24 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
