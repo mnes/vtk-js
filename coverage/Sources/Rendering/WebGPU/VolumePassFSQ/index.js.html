@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">1.49% </span>
+                <span class="strong">1.52% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/335</span>
+                <span class='fraction'>5/328</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">1.58% </span>
+                <span class="strong">1.61% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/316</span>
+                <span class='fraction'>5/309</span>
             </div>
         
             
@@ -1034,10 +1034,7 @@
 <a name='L969'></a><a href='#L969'>969</a>
 <a name='L970'></a><a href='#L970'>970</a>
 <a name='L971'></a><a href='#L971'>971</a>
-<a name='L972'></a><a href='#L972'>972</a>
-<a name='L973'></a><a href='#L973'>973</a>
-<a name='L974'></a><a href='#L974'>974</a>
-<a name='L975'></a><a href='#L975'>975</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L972'></a><a href='#L972'>972</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1631,7 +1628,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1645,7 +1641,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -1894,7 +1889,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1948,7 +1942,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1989,13 +1984,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -2603,8 +2597,7 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUVolumePas
         format: 'rgba8unorm',
       };
       const newTex = <span class="cstat-no" title="statement not covered" >device.getTextureManager().getTexture(treq);</span>
-      const tview = <span class="cstat-no" title="statement not covered" >newTex.createView();</span>
-<span class="cstat-no" title="statement not covered" >      tview.setName('tfunTexture');</span>
+      const tview = <span class="cstat-no" title="statement not covered" >newTex.createView('tfunTexture');</span>
 <span class="cstat-no" title="statement not covered" >      model.textureViews[2] = tview;</span>
     }
 &nbsp;
@@ -2617,8 +2610,7 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUVolumePas
         format: 'r16float',
       };
       const newTex = <span class="cstat-no" title="statement not covered" >device.getTextureManager().getTexture(treq);</span>
-      const tview = <span class="cstat-no" title="statement not covered" >newTex.createView();</span>
-<span class="cstat-no" title="statement not covered" >      tview.setName('ofunTexture');</span>
+      const tview = <span class="cstat-no" title="statement not covered" >newTex.createView('ofunTexture');</span>
 <span class="cstat-no" title="statement not covered" >      model.textureViews[3] = tview;</span>
     }
 &nbsp;
@@ -2868,8 +2860,7 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUVolumePas
         !model.textureViews[vidx + 4] ||
         model.textureViews[vidx + 4].getTexture() !== newTex
       ) {
-        const tview = <span class="cstat-no" title="statement not covered" >newTex.createView();</span>
-<span class="cstat-no" title="statement not covered" >        tview.setName(`volTexture${vidx}`);</span>
+        const tview = <span class="cstat-no" title="statement not covered" >newTex.createView(`volTexture${vidx}`);</span>
 <span class="cstat-no" title="statement not covered" >        model.textureViews[vidx + 4] = tview;</span>
       }
     }
@@ -2921,8 +2912,9 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUVolumePas
 <span class="cstat-no" title="statement not covered" >    publicAPI.updateBuffers(device);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    if (!model.clampSampler) {</span>
-<span class="cstat-no" title="statement not covered" >      model.clampSampler = vtkWebGPUSampler.newInstance();</span>
-<span class="cstat-no" title="statement not covered" >      model.clampSampler.setName('clampSampler');</span>
+<span class="cstat-no" title="statement not covered" >      model.clampSampler = vtkWebGPUSampler.newInstance({</span>
+        label: 'clampSampler',
+      });
 <span class="cstat-no" title="statement not covered" >      model.clampSampler.create(device, {</span>
         minFilter: 'linear',
         magFilter: 'linear',
@@ -2961,15 +2953,14 @@ export function <span class="fstat-no" title="function not covered" >extend(</sp
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  model.fragmentShaderTemplate = volFragTemplate;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  model.UBO = vtkWebGPUUniformBuffer.newInstance();</span>
-<span class="cstat-no" title="statement not covered" >  model.UBO.setName('mapperUBO');</span>
+<span class="cstat-no" title="statement not covered" >  model.UBO = vtkWebGPUUniformBuffer.newInstance({ label: 'mapperUBO' });</span>
 <span class="cstat-no" title="statement not covered" >  model.UBO.addEntry('SampleDistance', 'f32');</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  model.SSBO = vtkWebGPUStorageBuffer.newInstance();</span>
-<span class="cstat-no" title="statement not covered" >  model.SSBO.setName('volumeSSBO');</span>
+<span class="cstat-no" title="statement not covered" >  model.SSBO = vtkWebGPUStorageBuffer.newInstance({ label: 'volumeSSBO' });</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  model.componentSSBO = vtkWebGPUStorageBuffer.newInstance();</span>
-<span class="cstat-no" title="statement not covered" >  model.componentSSBO.setName('componentSSBO');</span>
+<span class="cstat-no" title="statement not covered" >  model.componentSSBO = vtkWebGPUStorageBuffer.newInstance({</span>
+    label: 'componentSSBO',
+  });
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  model.lutBuildTime = {};</span>
 <span class="cstat-no" title="statement not covered" >  macro.obj(model.lutBuildTime, { mtime: 0 });</span>
@@ -2992,7 +2983,7 @@ export default { newInstance, extend };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Jan 28 2022 21:56:38 GMT+0000 (Coordinated Universal Time)
+                at Mon Jan 31 2022 14:37:17 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

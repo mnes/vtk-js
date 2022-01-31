@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">3.86% </span>
+                <span class="strong">3.95% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/259</span>
+                <span class='fraction'>10/253</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">3.98% </span>
+                <span class="strong">4.08% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/251</span>
+                <span class='fraction'>10/245</span>
             </div>
         
             
@@ -594,9 +594,7 @@
 <a name='L529'></a><a href='#L529'>529</a>
 <a name='L530'></a><a href='#L530'>530</a>
 <a name='L531'></a><a href='#L531'>531</a>
-<a name='L532'></a><a href='#L532'>532</a>
-<a name='L533'></a><a href='#L533'>533</a>
-<a name='L534'></a><a href='#L534'>534</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L532'></a><a href='#L532'>532</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -931,7 +929,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -946,7 +943,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -972,7 +968,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1098,13 +1095,12 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -1461,8 +1457,7 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUImageMapp
           format: 'rgba8unorm',
         };
         const newTex = <span class="cstat-no" title="statement not covered" >device.getTextureManager().getTexture(treq);</span>
-        const tview = <span class="cstat-no" title="statement not covered" >newTex.createView();</span>
-<span class="cstat-no" title="statement not covered" >        tview.setName('tfunTexture');</span>
+        const tview = <span class="cstat-no" title="statement not covered" >newTex.createView('tfunTexture');</span>
         const tViews = <span class="cstat-no" title="statement not covered" >model.helper.getTextureViews();</span>
 <span class="cstat-no" title="statement not covered" >        tViews[1] = tview;</span>
       }
@@ -1480,8 +1475,7 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUImageMapp
     const tViews = <span class="cstat-no" title="statement not covered" >model.helper.getTextureViews();</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    if (!tViews[0] || tViews[0].getTexture() !== newTex) {</span>
-      const tview = <span class="cstat-no" title="statement not covered" >newTex.createView();</span>
-<span class="cstat-no" title="statement not covered" >      tview.setName(`imgTexture`);</span>
+      const tview = <span class="cstat-no" title="statement not covered" >newTex.createView('imgTexture');</span>
 <span class="cstat-no" title="statement not covered" >      tViews[0] = tview;</span>
     }
 &nbsp;
@@ -1504,8 +1498,9 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUImageMapp
       !model.clampSampler ||
       iType !== model.clampSampler.getOptions().minFilter
     ) {
-<span class="cstat-no" title="statement not covered" >      model.clampSampler = vtkWebGPUSampler.newInstance();</span>
-<span class="cstat-no" title="statement not covered" >      model.clampSampler.setName('clampSampler');</span>
+<span class="cstat-no" title="statement not covered" >      model.clampSampler = vtkWebGPUSampler.newInstance({</span>
+        label: 'clampSampler',
+      });
 <span class="cstat-no" title="statement not covered" >      model.clampSampler.create(device, {</span>
         minFilter: iType,
         magFilter: iType,
@@ -1623,8 +1618,7 @@ export function <span class="fstat-no" title="function not covered" >extend(</sp
 <span class="cstat-no" title="statement not covered" >  model.helper = vtkWebGPUFullScreenQuad.newInstance();</span>
 <span class="cstat-no" title="statement not covered" >  model.helper.setFragmentShaderTemplate(imgFragTemplate);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  model.UBO = vtkWebGPUUniformBuffer.newInstance();</span>
-<span class="cstat-no" title="statement not covered" >  model.UBO.setName('mapperUBO');</span>
+<span class="cstat-no" title="statement not covered" >  model.UBO = vtkWebGPUUniformBuffer.newInstance({ label: 'mapperUBO' });</span>
 <span class="cstat-no" title="statement not covered" >  model.UBO.addEntry('SCTCMatrix', 'mat4x4&lt;f32&gt;');</span>
 <span class="cstat-no" title="statement not covered" >  model.UBO.addEntry('Origin', 'vec4&lt;f32&gt;');</span>
 <span class="cstat-no" title="statement not covered" >  model.UBO.addEntry('Axis2', 'vec4&lt;f32&gt;');</span>
@@ -1633,11 +1627,11 @@ export function <span class="fstat-no" title="function not covered" >extend(</sp
 <span class="cstat-no" title="statement not covered" >  model.UBO.addEntry('cShift', 'vec4&lt;f32&gt;');</span>
 <span class="cstat-no" title="statement not covered" >  model.helper.setUBO(model.UBO);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  model.SSBO = vtkWebGPUStorageBuffer.newInstance();</span>
-<span class="cstat-no" title="statement not covered" >  model.SSBO.setName('volumeSSBO');</span>
+<span class="cstat-no" title="statement not covered" >  model.SSBO = vtkWebGPUStorageBuffer.newInstance({ label: 'volumeSSBO' });</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  model.componentSSBO = vtkWebGPUStorageBuffer.newInstance();</span>
-<span class="cstat-no" title="statement not covered" >  model.componentSSBO.setName('componentSSBO');</span>
+<span class="cstat-no" title="statement not covered" >  model.componentSSBO = vtkWebGPUStorageBuffer.newInstance({</span>
+    label: 'componentSSBO',
+  });
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  model.lutBuildTime = {};</span>
 <span class="cstat-no" title="statement not covered" >  macro.obj(model.lutBuildTime, { mtime: 0 });</span>
@@ -1669,7 +1663,7 @@ registerOverride('vtkImageMapper', newInstance);
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Jan 28 2022 21:56:38 GMT+0000 (Coordinated Universal Time)
+                at Mon Jan 31 2022 14:37:17 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

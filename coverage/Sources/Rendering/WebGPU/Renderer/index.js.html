@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">2.53% </span>
+                <span class="strong">2.57% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/197</span>
+                <span class='fraction'>5/194</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">2.67% </span>
+                <span class="strong">2.71% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/187</span>
+                <span class='fraction'>5/184</span>
             </div>
         
             
@@ -501,10 +501,7 @@
 <a name='L436'></a><a href='#L436'>436</a>
 <a name='L437'></a><a href='#L437'>437</a>
 <a name='L438'></a><a href='#L438'>438</a>
-<a name='L439'></a><a href='#L439'>439</a>
-<a name='L440'></a><a href='#L440'>440</a>
-<a name='L441'></a><a href='#L441'>441</a>
-<a name='L442'></a><a href='#L442'>442</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L439'></a><a href='#L439'>439</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -744,7 +741,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -910,9 +906,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1182,8 +1176,7 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPURenderer(
 <span class="cstat-no" title="statement not covered" >      model.clearFSQ.setDevice(device);</span>
 <span class="cstat-no" title="statement not covered" >      model.clearFSQ.setPipelineHash('clearfsq');</span>
 <span class="cstat-no" title="statement not covered" >      model.clearFSQ.setFragmentShaderTemplate(clearFragTemplate);</span>
-      const ubo = <span class="cstat-no" title="statement not covered" >vtkWebGPUUniformBuffer.newInstance();</span>
-<span class="cstat-no" title="statement not covered" >      ubo.setName('mapperUBO');</span>
+      const ubo = <span class="cstat-no" title="statement not covered" >vtkWebGPUUniformBuffer.newInstance({ label: 'mapperUBO' });</span>
 <span class="cstat-no" title="statement not covered" >      ubo.addEntry('BackgroundColor', 'vec4&lt;f32&gt;');</span>
 <span class="cstat-no" title="statement not covered" >      model.clearFSQ.setUBO(ubo);</span>
     }
@@ -1342,8 +1335,7 @@ export function <span class="fstat-no" title="function not covered" >extend(</sp
   // Inheritance
 <span class="cstat-no" title="statement not covered" >  vtkViewNode.extend(publicAPI, model, initialValues);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  model.UBO = vtkWebGPUUniformBuffer.newInstance();</span>
-<span class="cstat-no" title="statement not covered" >  model.UBO.setName('rendererUBO');</span>
+<span class="cstat-no" title="statement not covered" >  model.UBO = vtkWebGPUUniformBuffer.newInstance({ label: 'rendererUBO' });</span>
 <span class="cstat-no" title="statement not covered" >  model.UBO.addEntry('WCVCMatrix', 'mat4x4&lt;f32&gt;');</span>
 <span class="cstat-no" title="statement not covered" >  model.UBO.addEntry('SCPCMatrix', 'mat4x4&lt;f32&gt;');</span>
 <span class="cstat-no" title="statement not covered" >  model.UBO.addEntry('PCSCMatrix', 'mat4x4&lt;f32&gt;');</span>
@@ -1353,8 +1345,7 @@ export function <span class="fstat-no" title="function not covered" >extend(</sp
 <span class="cstat-no" title="statement not covered" >  model.UBO.addEntry('viewportSize', 'vec2&lt;f32&gt;');</span>
 <span class="cstat-no" title="statement not covered" >  model.UBO.addEntry('cameraParallel', 'u32');</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  model.bindGroup = vtkWebGPUBindGroup.newInstance();</span>
-<span class="cstat-no" title="statement not covered" >  model.bindGroup.setName('rendererBG');</span>
+<span class="cstat-no" title="statement not covered" >  model.bindGroup = vtkWebGPUBindGroup.newInstance({ label: 'rendererBG' });</span>
 <span class="cstat-no" title="statement not covered" >  model.bindGroup.setBindables([model.UBO]);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  model.tmpMat4 = mat4.identity(new Float64Array(16));</span>
@@ -1393,7 +1384,7 @@ registerOverride('vtkRenderer', newInstance);
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Jan 28 2022 21:56:38 GMT+0000 (Coordinated Universal Time)
+                at Mon Jan 31 2022 14:37:17 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

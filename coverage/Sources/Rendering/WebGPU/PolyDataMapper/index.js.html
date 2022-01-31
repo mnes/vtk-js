@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">2.73% </span>
+                <span class="strong">2.74% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/366</span>
+                <span class='fraction'>10/364</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">2.82% </span>
+                <span class="strong">2.84% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/354</span>
+                <span class='fraction'>10/352</span>
             </div>
         
             
@@ -935,9 +935,7 @@
 <a name='L870'></a><a href='#L870'>870</a>
 <a name='L871'></a><a href='#L871'>871</a>
 <a name='L872'></a><a href='#L872'>872</a>
-<a name='L873'></a><a href='#L873'>873</a>
-<a name='L874'></a><a href='#L874'>874</a>
-<a name='L875'></a><a href='#L875'>875</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L873'></a><a href='#L873'>873</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1543,7 +1541,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -1733,7 +1730,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -2371,7 +2367,7 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUPolyDataM
     const idata = <span class="cstat-no" title="statement not covered" >model.renderable.getColorTextureMap();</span> // returns an imagedata
 <span class="cstat-no" title="statement not covered" >    if (idata) {</span>
 <span class="cstat-no" title="statement not covered" >      if (!model.colorTexture) {</span>
-<span class="cstat-no" title="statement not covered" >        model.colorTexture = vtkTexture.newInstance();</span>
+<span class="cstat-no" title="statement not covered" >        model.colorTexture = vtkTexture.newInstance({ label: 'polyDataColor' });</span>
       }
 <span class="cstat-no" title="statement not covered" >      model.colorTexture.setInputData(idata);</span>
 <span class="cstat-no" title="statement not covered" >      newTextures.push(model.colorTexture);</span>
@@ -2413,8 +2409,7 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUPolyDataM
         }
 <span class="cstat-no" title="statement not covered" >        if (!found) {</span>
 <span class="cstat-no" title="statement not covered" >          usedTextures[model.textures.length] = true;</span>
-          const tview = <span class="cstat-no" title="statement not covered" >newTex.createView();</span>
-<span class="cstat-no" title="statement not covered" >          tview.setName(`Texture${usedCount++}`);</span>
+          const tview = <span class="cstat-no" title="statement not covered" >newTex.createView(`Texture${usedCount++}`);</span>
 <span class="cstat-no" title="statement not covered" >          model.textures.push(newTex);</span>
 <span class="cstat-no" title="statement not covered" >          model.textureViews.push(tview);</span>
           const interpolate = <span class="cstat-no" title="statement not covered" >srcTexture.getInterpolate()</span>
@@ -2607,8 +2602,7 @@ export function <span class="fstat-no" title="function not covered" >extend(</sp
 <span class="cstat-no" title="statement not covered" >  model.vertexShaderTemplate =</span>
     model.vertexShaderTemplate || vtkWebGPUPolyDataVS;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  model.UBO = vtkWebGPUUniformBuffer.newInstance();</span>
-<span class="cstat-no" title="statement not covered" >  model.UBO.setName('mapperUBO');</span>
+<span class="cstat-no" title="statement not covered" >  model.UBO = vtkWebGPUUniformBuffer.newInstance({ label: 'mapperUBO' });</span>
 <span class="cstat-no" title="statement not covered" >  model.UBO.addEntry('BCWCMatrix', 'mat4x4&lt;f32&gt;');</span>
 <span class="cstat-no" title="statement not covered" >  model.UBO.addEntry('BCSCMatrix', 'mat4x4&lt;f32&gt;');</span>
 <span class="cstat-no" title="statement not covered" >  model.UBO.addEntry('MCWCNormals', 'mat4x4&lt;f32&gt;');</span>
@@ -2692,7 +2686,7 @@ registerOverride('vtkMapper', newInstance);
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Jan 28 2022 21:56:38 GMT+0000 (Coordinated Universal Time)
+                at Mon Jan 31 2022 14:37:17 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
