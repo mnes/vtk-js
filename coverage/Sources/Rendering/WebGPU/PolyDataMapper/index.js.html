@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">2.74% </span>
+                <span class="strong">2.76% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/364</span>
+                <span class='fraction'>10/362</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">2.84% </span>
+                <span class="strong">2.85% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/352</span>
+                <span class='fraction'>10/350</span>
             </div>
         
             
@@ -934,8 +934,7 @@
 <a name='L869'></a><a href='#L869'>869</a>
 <a name='L870'></a><a href='#L870'>870</a>
 <a name='L871'></a><a href='#L871'>871</a>
-<a name='L872'></a><a href='#L872'>872</a>
-<a name='L873'></a><a href='#L873'>873</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L872'></a><a href='#L872'>872</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1340,27 +1339,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1377,6 +1356,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1394,8 +1393,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -2212,6 +2210,7 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUPolyDataM
     }
 &nbsp;
     const vertexInput = <span class="cstat-no" title="statement not covered" >model.primitives[primType].getVertexInput();</span>
+    const hash = <span class="cstat-no" title="statement not covered" >`R${representation}P${primType}`;</span>
 &nbsp;
     // hash = all things that can change the values on the buffer
     // since mtimes are unique we can use
@@ -2225,26 +2224,25 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUPolyDataM
     // - packExtra - covered by format
     // - prim type (vert/lines/polys/strips) - covered by cells mtime
 &nbsp;
-    const hash = <span class="cstat-no" title="statement not covered" >cells.getMTime() + representation;</span>
     // points
     const points = <span class="cstat-no" title="statement not covered" >pd.getPoints();</span>
 <span class="cstat-no" title="statement not covered" >    if (points) {</span>
       const shift = <span class="cstat-no" title="statement not covered" >model.WebGPUActor.getBufferShift(model.WebGPURenderer);</span>
       const buffRequest = <span class="cstat-no" title="statement not covered" >{</span>
-        hash: hash + points.getMTime(),
-        dataArray: points,
-        source: points,
-        cells,
-        primitiveType: primType,
-        representation,
+        owner: points,
+        usage: BufferUsage.PointArray,
+        format: 'float32x4',
         time: Math.max(
           points.getMTime(),
           cells.getMTime(),
           model.WebGPUActor.getKeyMatricesTime().getMTime()
         ),
+        hash,
+        dataArray: points,
+        cells,
+        primitiveType: primType,
+        representation,
         shift,
-        usage: BufferUsage.PointArray,
-        format: 'float32x4',
         packExtra: true,
       };
       const buff = <span class="cstat-no" title="statement not covered" >device.getBufferManager().getBuffer(buffRequest);</span>
@@ -2258,26 +2256,25 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUPolyDataM
 <span class="cstat-no" title="statement not covered" >    if (usage === BufferUsage.Triangles || usage === BufferUsage.Strips) {</span>
       const normals = <span class="cstat-no" title="statement not covered" >pd.getPointData().getNormals();</span>
       const buffRequest = <span class="cstat-no" title="statement not covered" >{</span>
+        format: 'snorm8x4',
+        hash,
         cells,
         representation,
         primitiveType: primType,
-        format: 'snorm8x4',
         packExtra: true,
         shift: 0,
         scale: 127,
       };
 <span class="cstat-no" title="statement not covered" >      if (normals) {</span>
-<span class="cstat-no" title="statement not covered" >        buffRequest.hash = hash + normals.getMTime();</span>
+<span class="cstat-no" title="statement not covered" >        buffRequest.owner = normals;</span>
 <span class="cstat-no" title="statement not covered" >        buffRequest.dataArray = normals;</span>
-<span class="cstat-no" title="statement not covered" >        buffRequest.source = normals;</span>
 <span class="cstat-no" title="statement not covered" >        buffRequest.time = Math.max(normals.getMTime(), cells.getMTime());</span>
 <span class="cstat-no" title="statement not covered" >        buffRequest.usage = BufferUsage.PointArray;</span>
         const buff = <span class="cstat-no" title="statement not covered" >device.getBufferManager().getBuffer(buffRequest);</span>
 <span class="cstat-no" title="statement not covered" >        vertexInput.addBuffer(buff, ['normalMC']);</span>
       } else <span class="cstat-no" title="statement not covered" >if (primType === PrimitiveTypes.Triangles) {</span>
-<span class="cstat-no" title="statement not covered" >        buffRequest.hash = hash + points.getMTime();</span>
+<span class="cstat-no" title="statement not covered" >        buffRequest.owner = points;</span>
 <span class="cstat-no" title="statement not covered" >        buffRequest.dataArray = points;</span>
-<span class="cstat-no" title="statement not covered" >        buffRequest.source = points;</span>
 <span class="cstat-no" title="statement not covered" >        buffRequest.time = Math.max(points.getMTime(), cells.getMTime());</span>
 <span class="cstat-no" title="statement not covered" >        buffRequest.usage = BufferUsage.NormalsFromPoints;</span>
         const buff = <span class="cstat-no" title="statement not covered" >device.getBufferManager().getBuffer(buffRequest);</span>
@@ -2308,15 +2305,15 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUPolyDataM
 <span class="cstat-no" title="statement not covered" >          haveCellScalars = true;</span>
         }
         const buffRequest = <span class="cstat-no" title="statement not covered" >{</span>
-          hash: hash + points.getMTime(),
+          owner: c,
+          usage: BufferUsage.PointArray,
+          format: 'unorm8x4',
+          time: Math.max(c.getMTime(), cells.getMTime(), points.getMTime()),
+          hash: hash + haveCellScalars,
           dataArray: c,
-          source: c,
           cells,
           primitiveType: primType,
           representation,
-          time: Math.max(c.getMTime(), cells.getMTime()),
-          usage: BufferUsage.PointArray,
-          format: 'unorm8x4',
           cellData: haveCellScalars,
           cellOffset: 0,
         };
@@ -2340,15 +2337,15 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUPolyDataM
     }
 <span class="cstat-no" title="statement not covered" >    if (tcoords &amp;&amp; !edges) {</span>
       const buffRequest = <span class="cstat-no" title="statement not covered" >{</span>
-        hash: hash + tcoords.getMTime(),
+        owner: tcoords,
+        usage: BufferUsage.PointArray,
+        format: 'float32x2',
+        time: Math.max(tcoords.getMTime(), cells.getMTime()),
+        hash,
         dataArray: tcoords,
-        source: tcoords,
         cells,
         primitiveType: primType,
         representation,
-        time: Math.max(tcoords.getMTime(), cells.getMTime()),
-        usage: BufferUsage.PointArray,
-        format: 'float32x2',
       };
       const buff = <span class="cstat-no" title="statement not covered" >device.getBufferManager().getBuffer(buffRequest);</span>
 <span class="cstat-no" title="statement not covered" >      vertexInput.addBuffer(buff, ['tcoord']);</span>
@@ -2391,10 +2388,10 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUPolyDataM
       const treq = <span class="cstat-no" title="statement not covered" >{};</span>
 <span class="cstat-no" title="statement not covered" >      if (srcTexture.getInputData()) {</span>
 <span class="cstat-no" title="statement not covered" >        treq.imageData = srcTexture.getInputData();</span>
-<span class="cstat-no" title="statement not covered" >        treq.source = treq.imageData;</span>
+<span class="cstat-no" title="statement not covered" >        treq.owner = treq.imageData.getPointData().getScalars();</span>
       } else <span class="cstat-no" title="statement not covered" >if (srcTexture.getImage()) {</span>
 <span class="cstat-no" title="statement not covered" >        treq.image = srcTexture.getImage();</span>
-<span class="cstat-no" title="statement not covered" >        treq.source = treq.image;</span>
+<span class="cstat-no" title="statement not covered" >        treq.owner = treq.image;</span>
       }
       const newTex = <span class="cstat-no" title="statement not covered" >model.device.getTextureManager().getTexture(treq);</span>
 <span class="cstat-no" title="statement not covered" >      if (newTex.getReady()) {</span>
@@ -2686,7 +2683,7 @@ registerOverride('vtkMapper', newInstance);
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Feb 10 2022 15:54:09 GMT+0000 (Coordinated Universal Time)
+                at Fri Feb 11 2022 20:04:16 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
