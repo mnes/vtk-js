@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">2.76% </span>
+                <span class="strong">2.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/362</span>
+                <span class='fraction'>10/368</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/133</span>
+                <span class='fraction'>0/140</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">2.85% </span>
+                <span class="strong">2.8% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/350</span>
+                <span class='fraction'>10/356</span>
             </div>
         
             
@@ -934,7 +934,17 @@
 <a name='L869'></a><a href='#L869'>869</a>
 <a name='L870'></a><a href='#L870'>870</a>
 <a name='L871'></a><a href='#L871'>871</a>
-<a name='L872'></a><a href='#L872'>872</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L872'></a><a href='#L872'>872</a>
+<a name='L873'></a><a href='#L873'>873</a>
+<a name='L874'></a><a href='#L874'>874</a>
+<a name='L875'></a><a href='#L875'>875</a>
+<a name='L876'></a><a href='#L876'>876</a>
+<a name='L877'></a><a href='#L877'>877</a>
+<a name='L878'></a><a href='#L878'>878</a>
+<a name='L879'></a><a href='#L879'>879</a>
+<a name='L880'></a><a href='#L880'>880</a>
+<a name='L881'></a><a href='#L881'>881</a>
+<a name='L882'></a><a href='#L882'>882</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1504,6 +1514,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -1511,6 +1525,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -2374,7 +2394,11 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUPolyDataM
     const actor = <span class="cstat-no" title="statement not covered" >model.WebGPUActor.getRenderable();</span>
     const textures = <span class="cstat-no" title="statement not covered" >actor.getTextures();</span>
 <span class="cstat-no" title="statement not covered" >    for (let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; textures.length; i++) {</span>
-<span class="cstat-no" title="statement not covered" >      if (textures[i].getInputData()) {</span>
+<span class="cstat-no" title="statement not covered" >      if (</span>
+        textures[i].getInputData() ||
+        textures[i].getJsImageData() ||
+        textures[i].getCanvas()
+      ) {
 <span class="cstat-no" title="statement not covered" >        newTextures.push(textures[i]);</span>
       }
 <span class="cstat-no" title="statement not covered" >      if (textures[i].getImage() &amp;&amp; textures[i].getImageLoaded()) {</span>
@@ -2385,13 +2409,19 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUPolyDataM
     let usedCount = <span class="cstat-no" title="statement not covered" >0;</span>
 <span class="cstat-no" title="statement not covered" >    for (let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; newTextures.length; i++) {</span>
       const srcTexture = <span class="cstat-no" title="statement not covered" >newTextures[i];</span>
-      const treq = <span class="cstat-no" title="statement not covered" >{};</span>
+      const treq = <span class="cstat-no" title="statement not covered" >{ time: srcTexture.getMTime() };</span>
 <span class="cstat-no" title="statement not covered" >      if (srcTexture.getInputData()) {</span>
 <span class="cstat-no" title="statement not covered" >        treq.imageData = srcTexture.getInputData();</span>
 <span class="cstat-no" title="statement not covered" >        treq.owner = treq.imageData.getPointData().getScalars();</span>
       } else <span class="cstat-no" title="statement not covered" >if (srcTexture.getImage()) {</span>
 <span class="cstat-no" title="statement not covered" >        treq.image = srcTexture.getImage();</span>
 <span class="cstat-no" title="statement not covered" >        treq.owner = treq.image;</span>
+      } else <span class="cstat-no" title="statement not covered" >if (srcTexture.getJsImageData()) {</span>
+<span class="cstat-no" title="statement not covered" >        treq.jsImageData = srcTexture.getJsImageData();</span>
+<span class="cstat-no" title="statement not covered" >        treq.owner = treq.jsImageData;</span>
+      } else <span class="cstat-no" title="statement not covered" >if (srcTexture.getCanvas()) {</span>
+<span class="cstat-no" title="statement not covered" >        treq.canvas = srcTexture.getCanvas();</span>
+<span class="cstat-no" title="statement not covered" >        treq.owner = treq.canvas;</span>
       }
       const newTex = <span class="cstat-no" title="statement not covered" >model.device.getTextureManager().getTexture(treq);</span>
 <span class="cstat-no" title="statement not covered" >      if (newTex.getReady()) {</span>
@@ -2683,7 +2713,7 @@ registerOverride('vtkMapper', newInstance);
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Tue Feb 15 2022 23:23:15 GMT+0000 (Coordinated Universal Time)
+                at Mon Feb 21 2022 14:17:32 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
