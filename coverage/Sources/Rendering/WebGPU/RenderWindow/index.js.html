@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">1.83% </span>
+                <span class="strong">1.82% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/273</span>
+                <span class='fraction'>5/274</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/107</span>
+                <span class='fraction'>0/111</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">1.9% </span>
+                <span class="strong">1.89% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/263</span>
+                <span class='fraction'>5/264</span>
             </div>
         
             
@@ -699,7 +699,13 @@
 <a name='L634'></a><a href='#L634'>634</a>
 <a name='L635'></a><a href='#L635'>635</a>
 <a name='L636'></a><a href='#L636'>636</a>
-<a name='L637'></a><a href='#L637'>637</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L637'></a><a href='#L637'>637</a>
+<a name='L638'></a><a href='#L638'>638</a>
+<a name='L639'></a><a href='#L639'>639</a>
+<a name='L640'></a><a href='#L640'>640</a>
+<a name='L641'></a><a href='#L641'>641</a>
+<a name='L642'></a><a href='#L642'>642</a>
+<a name='L643'></a><a href='#L643'>643</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1048,6 +1054,8 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -1071,7 +1079,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1684,6 +1696,8 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPURenderWin
 <span class="cstat-no" title="statement not covered" >          publicAPI.modified();</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >          if (resetCamera) {</span>
+            const isUserResetCamera = <span class="cstat-no" title="statement not covered" >resetCamera !== true;</span>
+&nbsp;
             // If resetCamera was requested, we first save camera parameters
             // from all the renderers, so we can restore them later
 <span class="cstat-no" title="statement not covered" >            model._screenshot.cameras = model.renderable</span>
@@ -1697,7 +1711,10 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPURenderWin
                 );
 &nbsp;
 <span class="cstat-no" title="statement not covered" >                return {</span>
-                  resetCameraFn: renderer.resetCamera,
+                  resetCameraArgs: isUserResetCamera ? { renderer } : undefined,
+                  resetCameraFn: isUserResetCamera
+                    ? resetCamera
+                    : renderer.resetCamera,
                   restoreParamsFn: camera.set,
                   // "clone" the params so we don't keep refs to properties
                   arg: JSON.parse(JSON.stringify(params)),
@@ -1707,8 +1724,9 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPURenderWin
             // Perform the resetCamera() on each renderer only after capturing
             // the params from all active cameras, in case there happen to be
             // linked cameras among the renderers.
-<span class="cstat-no" title="statement not covered" >            model._screenshot.cameras.forEach(<span class="fstat-no" title="function not covered" >({</span> resetCameraFn }) =&gt;</span>
-<span class="cstat-no" title="statement not covered" >              resetCameraFn()</span>
+<span class="cstat-no" title="statement not covered" >            model._screenshot.cameras.forEach(</span>
+<span class="fstat-no" title="function not covered" >              ({</span> resetCameraFn, resetCameraArgs }) =&gt;
+<span class="cstat-no" title="statement not covered" >                resetCameraFn(resetCameraArgs)</span>
             );
           }
 &nbsp;
@@ -1978,7 +1996,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Feb 23 2022 17:34:22 GMT+0000 (Coordinated Universal Time)
+                at Fri Feb 25 2022 23:20:58 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

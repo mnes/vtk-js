@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">51.37% </span>
+                <span class="strong">51.25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>205/399</span>
+                <span class='fraction'>205/400</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.2% </span>
+                <span class="strong">28.74% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>73/250</span>
+                <span class='fraction'>73/254</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">51.39% </span>
+                <span class="strong">51.26% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>202/393</span>
+                <span class='fraction'>202/394</span>
             </div>
         
             
@@ -1377,7 +1377,13 @@
 <a name='L1312'></a><a href='#L1312'>1312</a>
 <a name='L1313'></a><a href='#L1313'>1313</a>
 <a name='L1314'></a><a href='#L1314'>1314</a>
-<a name='L1315'></a><a href='#L1315'>1315</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L1315'></a><a href='#L1315'>1315</a>
+<a name='L1316'></a><a href='#L1316'>1316</a>
+<a name='L1317'></a><a href='#L1317'>1317</a>
+<a name='L1318'></a><a href='#L1318'>1318</a>
+<a name='L1319'></a><a href='#L1319'>1319</a>
+<a name='L1320'></a><a href='#L1320'>1320</a>
+<a name='L1321'></a><a href='#L1321'>1321</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1850,9 +1856,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">167x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">167x</span>
@@ -2061,6 +2067,8 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -2084,7 +2092,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -3375,6 +3387,8 @@ function vtkOpenGLRenderWindow(publicAPI, model) {
 <span class="cstat-no" title="statement not covered" >          publicAPI.modified();</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >          if (resetCamera) {</span>
+            const isUserResetCamera = <span class="cstat-no" title="statement not covered" >resetCamera !== true;</span>
+&nbsp;
             // If resetCamera was requested, we first save camera parameters
             // from all the renderers, so we can restore them later
 <span class="cstat-no" title="statement not covered" >            model._screenshot.cameras = model.renderable</span>
@@ -3388,7 +3402,10 @@ function vtkOpenGLRenderWindow(publicAPI, model) {
                 );
 &nbsp;
 <span class="cstat-no" title="statement not covered" >                return {</span>
-                  resetCameraFn: renderer.resetCamera,
+                  resetCameraArgs: isUserResetCamera ? { renderer } : undefined,
+                  resetCameraFn: isUserResetCamera
+                    ? resetCamera
+                    : renderer.resetCamera,
                   restoreParamsFn: camera.set,
                   // "clone" the params so we don't keep refs to properties
                   arg: JSON.parse(JSON.stringify(params)),
@@ -3398,8 +3415,9 @@ function vtkOpenGLRenderWindow(publicAPI, model) {
             // Perform the resetCamera() on each renderer only after capturing
             // the params from all active cameras, in case there happen to be
             // linked cameras among the renderers.
-<span class="cstat-no" title="statement not covered" >            model._screenshot.cameras.forEach(<span class="fstat-no" title="function not covered" >({</span> resetCameraFn }) =&gt;</span>
-<span class="cstat-no" title="statement not covered" >              resetCameraFn()</span>
+<span class="cstat-no" title="statement not covered" >            model._screenshot.cameras.forEach(</span>
+<span class="fstat-no" title="function not covered" >              ({</span> resetCameraFn, resetCameraArgs }) =&gt;
+<span class="cstat-no" title="statement not covered" >                resetCameraFn(resetCameraArgs)</span>
             );
           }
 &nbsp;
@@ -4012,7 +4030,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Feb 23 2022 17:34:22 GMT+0000 (Coordinated Universal Time)
+                at Fri Feb 25 2022 23:20:58 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
