@@ -63,6 +63,10 @@ const DEFAULT_VALUES = {
   autoAdjustSampleDistances: true,
   blendMode: BlendMode.COMPOSITE_BLEND,
   averageIPScalarRange: [-1000000.0, 1000000.0],
+
+  // If the camera goes inside the volume, coordinate transformation behind the camera fails, then the rendering will not be correct.
+  // So if you want to skip the calculation of the viewport bounds of the volume, please set useViewportBoundsOfVolume to false.
+  useViewportBoundsOfVolume: true,
 };
 
 // ----------------------------------------------------------------------------
@@ -82,6 +86,7 @@ export function extend(publicAPI, model, initialValues = {}) {
     'maximumSamplesPerRay',
     'autoAdjustSampleDistances',
     'blendMode',
+    'useViewportBoundsOfVolume',
   ]);
 
   macro.setGetArray(publicAPI, model, ['averageIPScalarRange'], 2);
